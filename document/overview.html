@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://unpkg.com/mermaid@7.0.3/dist/mermaid.css">
+        <title>アプリ概要図</title>
+    </head>
+    <body>
+        <header>
+            <h1>アプリ概要図</h1>
+        </header>
+        <hr />
+        <div class="mermaid">
+            graph LR
+                id1((User))
+                id2((Admin))
+                id3["ICカードリーダー(PaSoRi)"]
+                id4["browser(Angular)"]
+                id5[npmモジュール]
+                id6[ロジック]
+                id7[API]
+                id8{ElasticSearch}
+
+                subgraph 
+                    subgraph 
+                        id1-- ICカードキャン -->id3            
+                    end
+                    subgraph 
+                        id2-- アクセス -->id4            
+                    end
+                        
+                end
+
+                id3-- "データ(Python)" -->id5
+
+                id1-- アクセス -->id4
+                id4-- 非同期通信 ---id7
+
+                subgraph Node.js
+                    id5-- Jsonデータ -->id6
+                    id7-- データ ---id6
+                end
+
+                id6-- ログデータ ---id8              
+        </div>
+        <script src="https://unpkg.com/mermaid@7.0.3/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    </body>
+</html>
