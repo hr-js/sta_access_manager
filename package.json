@@ -1,0 +1,19 @@
+{
+  "name": "rns_project01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hr-js/RNS_project01.git"
+  },
+  "author": "hr-js",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hr-js/RNS_project01/issues"
+  },
+  "homepage": "https://github.com/hr-js/RNS_project01#readme"
+}
