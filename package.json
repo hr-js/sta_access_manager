@@ -8,12 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hr-js/RNS_project01.git"
+    "url": "git+https://github.com/hr-js/sta_access_manager.git"
   },
   "author": "hr-js",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hr-js/RNS_project01/issues"
+    "url": "https://github.com/hr-js/sta_access_manager/issues"
   },
-  "homepage": "https://github.com/hr-js/RNS_project01#readme"
+  "homepage": "https://github.com/hr-js/sta_access_manager#readme",
+  "dependencies": {
+    "node-nfcpy-id": "^0.1.1"
+  }
 }
