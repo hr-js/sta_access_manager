@@ -12,7 +12,7 @@ SoundPlayer.prototype = {
     this.musicFilePath = filepath;
   },
   //音源を再生する
-	play: function(){
+  play: function(){
     this.soundObj.play(this.musicFilePath);
   }
 };
