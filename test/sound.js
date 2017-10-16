@@ -1,6 +1,6 @@
 const Sound = require('node-aplay');
 
-var SoundPlayer = function(){
+function SoundPlayer(){
   // 初期化時にデフォルトの音源を読み込み
   this.musicFilePath = './sample.wav'
   this.soundObj = new Sound();
@@ -8,11 +8,13 @@ var SoundPlayer = function(){
 
 SoundPlayer.prototype = {
   //個別の音源のファイルパスをセットする
-  setSound: fucntion(filepath){
+  setSound: function(filepath){
     this.musicFilePath = filepath;
   },
   //音源を再生する
-  play; fucntion(){
+	play: function(){
     this.soundObj.play(this.musicFilePath);
   }
 };
+
+module.exports = SoundPlayer;
