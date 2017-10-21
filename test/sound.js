@@ -2,11 +2,11 @@ const Sound = require("node-aplay");
 
 class SoundPlayer {
   constructor(){
-    this.musicfile = "./sample.wav";
+    this._musicfile = "./sample.wav";
     this.soundObj = new Sound();	  
   }
   set musicfile(filepath){
-    this.musicfile = filepath;
+    this._musicfile = filepath;
   }
   play(){
     this.soundObj.play(this.musicfile);
