@@ -6,11 +6,11 @@ const player = new SoundPlayer();
 
 nfc.on('touchstart', (card) => {
   console.log('touchstart', 'id:', card.id, 'type:', card.type);
+  player.play();
 });
 
 nfc.on('touchend', () => {
   console.log('touchend');
-  player.play();
 });
 
 nfc.on('error', (err) => {
