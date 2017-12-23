@@ -1,10 +1,13 @@
 const path = require('path');
 
 const config = {
-  entry: ['babel-polyfill', './src/index.js'],
+  entry: {
+    './public/js/bundle': './src/client/index.js',
+    './app': './src/server/app.js',
+  },
   output: {
-    path: path.resolve(__dirname, 'public/js'),
-    filename: 'bundle.js',
+    path: path.resolve(__dirname),
+    filename: '[name].js',
   },
   devtool: 'cheap-source-map',
   module: {
