@@ -4,7 +4,9 @@
   "description": "入退室管理アプリ",
   "main": "index.js",
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "npm run build_client && npm run build_server && node ./bin/www",
+    "build_client": "npx webpack",
+    "build_server": "npx babel src/server/app.js -o app.js -s && npx babel src/server/routes --out-dir routes --source-maps && npx babel src/server/modules --out-dir modules --source-maps",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,7 +29,9 @@
     "pug": "^2.0.0-rc.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "serve-favicon": "~2.4.2"
+    "serve-favicon": "~2.4.2",
+    "socket.io": "^2.0.4",
+    "socket.io-client": "^2.0.4"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

@@ -1,13 +1,10 @@
 const path = require('path');
 
 const config = {
-  entry: {
-    './public/js/bundle': './src/client/index.js',
-    './app': './src/server/app.js',
-  },
+  entry: path.resolve(__dirname, './src/client/index.js'),
   output: {
-    path: path.resolve(__dirname),
-    filename: '[name].js',
+    path: path.resolve(__dirname, './public/js'),
+    filename: 'bundle.js',
   },
   devtool: 'cheap-source-map',
   module: {
