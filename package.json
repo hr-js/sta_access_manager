@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/hr-js/sta_access_manager#readme",
   "dependencies": {
+    "aplay": "^1.2.0",
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "debug": "~3.0.1",
