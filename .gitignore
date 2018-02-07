@@ -63,3 +63,6 @@ public/js/bundle.map.js
 
 # 音楽ファイル
 assets/
+
+# mapファイル
+*.js.map
