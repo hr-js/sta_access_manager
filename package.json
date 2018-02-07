@@ -26,14 +26,21 @@
     "cookie-parser": "~1.4.3",
     "debug": "~3.0.1",
     "express": "^4.16.2",
+    "history": "^4.7.2",
     "morgan": "~1.8.1",
     "node-nfcpy-id": "^0.1.1",
     "pug": "^2.0.0-rc.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-redux": "^5.0.0-alpha.9",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.16.0",
     "serve-favicon": "~2.4.2",
     "socket.io": "^2.0.4",
-    "socket.io-client": "^2.0.4"
+    "socket.io-client": "^2.0.4",
+    "superagent": "^3.8.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
