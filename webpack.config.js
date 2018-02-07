@@ -6,7 +6,7 @@ const config = {
     path: path.resolve(__dirname, './public/js'),
     filename: 'bundle.js',
   },
-  devtool: 'cheap-source-map',
+  devtool: 'source-map',
   module: {
     rules: [
       {
