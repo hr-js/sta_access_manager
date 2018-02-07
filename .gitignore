@@ -57,4 +57,12 @@ typings/
 # dotenv environment variables file
 .env
 
+# ビルドファイル
+public/js/bundle.js
+public/js/bundle.map.js
 
+# 音楽ファイル
+assets/
+
+# mapファイル
+*.js.map
