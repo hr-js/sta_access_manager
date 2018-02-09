@@ -6,7 +6,7 @@ const config = {
     path: path.resolve(__dirname, './public/js'),
     filename: 'bundle.js',
   },
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
