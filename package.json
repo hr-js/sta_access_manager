@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build_client && npm run build_server && node ./bin/www",
-    "build_client": "npx webpack",
-    "build_server": "npx babel src/server/app.js -o app.js -s && npx babel src/server/routes --out-dir routes --source-maps && npx babel src/server/modules --out-dir modules --source-maps",
+    "build_client": "webpack",
+    "build_server": "babel src/server/app.js -o app.js -s && babel src/server/routes --out-dir routes --source-maps && babel src/server/modules --out-dir modules --source-maps",
     "flow": "flow",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

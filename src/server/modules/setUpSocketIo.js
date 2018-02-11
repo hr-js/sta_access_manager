@@ -32,6 +32,5 @@ const setUpSocketIo = (server) => {
     //   console.error('\u001b[31m', err, '\u001b[0m');
     // });
   });
-  // socket.emit('scan', data);
 };
 export default setUpSocketIo;

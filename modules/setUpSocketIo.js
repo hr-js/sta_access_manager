@@ -8,14 +8,17 @@ var _socket = require('socket.io');
 
 var _socket2 = _interopRequireDefault(_socket);
 
+var _nodeNfcpyId = require('node-nfcpy-id');
+
+var _nodeNfcpyId2 = _interopRequireDefault(_nodeNfcpyId);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var Sound = require('aplay');
 // エラー回避のためコメントアウトしています。
-// import NfcpyId from 'node-nfcpy-id';
 
-// const Sound = require('aplay');
 
-// const nfc = new NfcpyId().start();
+var nfc = new _nodeNfcpyId2.default().start();
 
 var setUpSocketIo = function setUpSocketIo(server) {
   var io = (0, _socket2.default)(server);
@@ -28,22 +31,21 @@ var setUpSocketIo = function setUpSocketIo(server) {
     });
 
     // touch scan
-    // nfc.on('touchstart', (card) => {
-    //   console.log(`Card ID: ${card.id}`);
-    //   console.log(`Card Type: ${card.type}`);
-    //   new Sound().play('./assets/music/hoge.mp3'); // assets/musicにあるmp3ファイルを指定します。
-    //   socket.emit('scan', card.id);
-    // });
-    // // touch end
-    // nfc.on('touchend', () => {
-    //   console.log('Card was away.');
-    // });
-    // nfc.on('error', (err) => {
-    //   // standard error output (color is red)
-    //   console.error('\u001b[31m', err, '\u001b[0m');
-    // });
+    nfc.on('touchstart', function (card) {
+      console.log('Card ID: ' + card.id);
+      console.log('Card Type: ' + card.type);
+      new Sound().play('./assets/music/hoge.mp3'); // assets/musicにあるmp3ファイルを指定します。
+      socket.emit('scan', card.id);
+    });
+    // touch end
+    nfc.on('touchend', function () {
+      console.log('Card was away.');
+    });
+    nfc.on('error', function (err) {
+      // standard error output (color is red)
+      console.error('\x1B[31m', err, '\x1B[0m');
+    });
   });
-  // socket.emit('scan', data);
 };
 exports.default = setUpSocketIo;
 //# sourceMappingURL=setUpSocketIo.js.map
