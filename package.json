@@ -4,9 +4,9 @@
   "description": "入退室管理アプリ",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build_client && npm run build_server && node ./bin/www",
-    "build_client": "webpack",
-    "build_server": "babel src/server/app.js -o app.js -s && babel src/server/routes --out-dir routes --source-maps && babel src/server/modules --out-dir modules --source-maps",
+    "start": "npm run start:build & npm run start:server && node ./bin/www",
+    "start:client": "webpack-dev-server",
+    "start:server": "babel src/server/app.js -o app.js -s && babel src/server/routes --out-dir routes --source-maps && babel src/server/modules --out-dir modules --source-maps",
     "flow": "flow",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -64,6 +64,7 @@
     "power-assert": "^1.4.4",
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1",
     "webpack-espower-loader": "^1.0.2"
   }
 }
