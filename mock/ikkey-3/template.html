@@ -1,15 +1,51 @@
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./template.css">
-    <title>テンプレート</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./template.css">
+  <title>テンプレート</title>
 </head>
 <body>
-    <main>
-        <div class="left"></div>
-        <div class="right"></div>
+  <div class="container">
+    <nav class="menu">
+      <ul class="menu-list">
+        <li>
+          <a id="top" href="#" class="button selected">Top</a>
+        </li>
+        <li>
+          <a id="registor" href="#" class="button">ユーザ登録</a>
+        </li>
+        <li>
+          <a id="users" href="#" class="button">利用者一覧</a>
+        </li>
+      </ul>
+    </nav>
+    <main class="main">
+      <div class="mascot">
+        <img class="mascot-img" src="./sta_mock/img/NEKO9V9A9115_TP_V4.jpg" alt="マスコットキャラ" />
+      </div>
+      <div class="content"></div>
     </main>
+  </div>
+  <script>
+    const anchors = document.querySelectorAll('a.button');
+    anchors.forEach((el) => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        anchors.forEach((node) => {
+          if (node.id === e.target.id) {
+            if (!node.classList.contains('selected')) {
+              node.classList.add('selected');
+            }
+          } else {
+            if (node.classList.contains('selected')) {
+              node.classList.remove('selected');
+            }
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
