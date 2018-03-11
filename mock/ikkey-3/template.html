@@ -11,43 +11,38 @@
     <nav class="menu">
       <ul class="menu-list">
         <li>
-          <a id="top" href="#" class="button selected">Top</a>
+          <button onclick="go('/top/top.html')" class="button selected">Top</button>
         </li>
         <li>
-          <a id="registor" href="#" class="button">ユーザ登録</a>
+          <button onclick="go('/register/template.html')" class="button">ユーザ登録</button>
         </li>
         <li>
-          <a id="users" href="#" class="button">利用者一覧</a>
+          <button onclick="go('/participants/template.html')" class="button">利用者一覧</button>
         </li>
       </ul>
     </nav>
     <main class="main">
       <div class="mascot">
-        <img class="mascot-img" src="./sta_mock/img/NEKO9V9A9115_TP_V4.jpg" alt="マスコットキャラ" />
+        <img class="mascot-img" src="/img/NEKO9V9A9115_TP_V4.jpg" alt="マスコットキャラ" />
       </div>
       <div class="content">
-        <div class="wrap-content"></div>
+        <div class="wrap-content">
+          <div class="content-button-area">
+            <button class="single-button">ボタン</button>
+            <div class="double-button hidden">
+              <button class="back-button">ボタン</button>
+              <button class="next-button">ボタン</button>              
+            </div>
+          </div>
+        </div>
       </div>
     </main>
+    <script>
+      function go(path){
+        if(!path){ return false; }
+        location.href = path;
+      }
+    </script>
   </div>
-  <script>
-    const anchors = document.querySelectorAll('a.button');
-    anchors.forEach((el) => {
-      el.addEventListener('click', (e) => {
-        e.preventDefault();
-        anchors.forEach((node) => {
-          if (node.id === e.target.id) {
-            if (!node.classList.contains('selected')) {
-              node.classList.add('selected');
-            }
-          } else {
-            if (node.classList.contains('selected')) {
-              node.classList.remove('selected');
-            }
-          }
-        });
-      });
-    });
-  </script>
 </body>
 </html>
