@@ -33,25 +33,30 @@ body{
 }
 
 .button{
-  display: flex;
   width: 100%;
   height: 85px;
-  align-items: center;
-  justify-content: center;
+  margin: 0;
+  padding: 0;
   font-size: 18px;
   color: gray;
-  text-decoration: none;
+  background: transparent;
+  border: none;
   border-bottom: 1px dashed silver;
   box-sizing: border-box;
   transition: font-size 200ms;
 }
 
-.button:active{
-  background-color: transparent;
+button:focus{
+  outline: none;
+}
+
+button:active{
+  border: none;
 }
 
 .button.selected{
   background-color: silver;
+  border: none;
   color: white;
   font-size: 24px;
   font-weight: bold;
@@ -62,6 +67,7 @@ body{
   position: relative;
   width: calc(100% - 170px);
   height: 100%;
+  background-color: lightgreen;
   margin-left: 170px;
   box-sizing: border-box;
   padding: 40px;
@@ -83,6 +89,8 @@ body{
 .content{
   position: relative;
   width: 400px;
+  height: 100%;
+  background-color: white;
   color: gray;
   border-radius: 8px;
   box-sizing: border-box;
@@ -116,4 +124,27 @@ body{
   height: 100%;
   width: 100%;
   overflow: hidden;
+}
+
+.top{
+  display: flex;
+  position: relative;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+}
+
+.link{
+  position: absolute;
+  bottom: 10px;
+  font-size: 20px;
+  left: 20px;
+  background-color: orange;
+}
+
+.link > ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
