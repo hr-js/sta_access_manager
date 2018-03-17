@@ -207,7 +207,7 @@ button:active{
   padding: 0;
   border: none;
   background: silver;
-  font-size: 18px;
+  font-size: 28px;
   color: white;
   font-weight: bold;
 }
@@ -255,7 +255,7 @@ button:active{
 
 .input-area{
   position: relative;
-  height: calc(100% - 52px);
+  height: 100%;
   padding: 8px;
   box-sizing: border-box;
 }
@@ -287,8 +287,9 @@ button:active{
 .label-name{
   display: flex;
   height: 40%;
+  justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .input-name{
@@ -305,8 +306,9 @@ button:active{
 .label-email{
   display: flex;
   height: 34%;
+  justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .input-email{
@@ -322,4 +324,30 @@ button:active{
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+.scan-text{
+  position: relative;
+  height: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.sub{
+  position: absolute;
+  font-size: 20px;
+  bottom: 10px;
+  right: 0;
+}
+
+.scaned{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 30px;
 }

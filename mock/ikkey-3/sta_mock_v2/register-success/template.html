@@ -15,7 +15,7 @@
           <button onclick="go('/top/top.html')" class="button">Top</button>
         </li>
         <li>
-          <button onclick="go()" class="button selected">ユーザ登録</button>
+          <button onclick="go('/register/template.html')" class="button selected">ユーザ登録</button>
         </li>
         <li>
           <button onclick="go('/participants/template.html')" class="button">利用者一覧</button>
@@ -30,34 +30,23 @@
         <div class="wrap-content">
           <div class="top">
             <oi class="content-header">
-              <li class="next active">1. 入力
+              <li class="next">1. 入力
                 <span><i class="fas fa-angle-right"></i></span>
               </li>
-              <li class="next disabled">2. 読取
+              <li class="next">2. 読取
                 <span><i class="fas fa-angle-right"></i></span>
               </li>
-              <li class="disabled">3. 完了</li>
+              <li class="active">3. 完了</li>
             </oi>
             <div class="input-area">
-              <h1 class="input-title">1.名前とメールアドレスを入力してください。</h1>
-              <div class="input-wrap">
-                <div class="input-name-area">
-                  <label for="name" class="label-name">名前</label>
-                  <input id="name" class="input-name" type="text">
-                </div>            
-                <div class="input-email-area">
-                  <label for="email" class="label-email">メールアドレス</label>
-                  <input id="email" class="input-email" type="text">
-                  <div class="domain">@hoge.hg</div>
-                </div>            
-              </div>
+              <div class="scan-text">登録が完了しました！</div>
             </div>
           </div>
           <div class="content-button-area">
-            <div class="double-button">
-              <button onclick="go('/top/top.html')" class="cancel-button">キャンセル</button>
-              <button onclick="go('/register-scan/template.html')" class="next-button">次へ</button>              
-            </div>
+              <div class="double-button">
+                  <button onclick="go('/top/top.html')" class="cancel-button">Topへ</button>
+                  <button onclick="go('/purpose/template.html')" class="back-button">入室処理へ</button>
+              </div>
           </div>
         </div>
       </div>

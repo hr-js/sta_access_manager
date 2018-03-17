@@ -1,0 +1,59 @@
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./template.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <title>テンプレート</title>
+</head>
+<body>
+  <div class="container">
+    <nav class="menu">
+      <ul class="menu-list">
+        <li>
+          <button onclick="alert('遷移できません');" class="button">Top</button>
+        </li>
+        <li>
+          <button onclick="alert('遷移できません');" class="button selected">ユーザ登録</button>
+        </li>
+        <li>
+          <button onclick="alert('遷移できません');" class="button">利用者一覧</button>
+        </li>
+      </ul>
+    </nav>
+    <main class="main">
+      <div class="mascot">
+        <img class="mascot-img" src="/img/NEKO9V9A9115_TP_V4.jpg" alt="マスコットキャラ" />
+      </div>
+      <div class="content">
+        <div class="wrap-content">
+          <div class="top">
+            <oi class="content-header">
+              <li class="next">1. 入力
+                <span><i class="fas fa-angle-right"></i></span>
+              </li>
+              <li class="next active">2. 読取
+                <span><i class="fas fa-angle-right"></i></span>
+              </li>
+              <li class="disabled">3. 完了</li>
+            </oi>
+            <div class="input-area">
+              <div class="scan-text">登録中...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      function go(path){
+        if(!path){ return false; }
+        location.href = path;
+      }
+      setTimeout(() => {
+        location.href = '/register-success/template.html';
+      }, 3000);
+    </script>
+  </div>
+</body>
+</html>

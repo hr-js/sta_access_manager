@@ -73,127 +73,95 @@ button:active{
   padding: 40px;
 }
 
-.mascot{
-  position: relative;
-  width: 150px;
-}
-
-.mascot-img{
-  position: absolute;
-  width: 110px;
-  height: 200px;
-  bottom: 0;
-  left: 0;
-}
-
-.content{
-  position: relative;
-  width: 400px;
+.outer{
+  width: 100%;
   height: 100%;
-  background-color: white;
-  color: gray;
+  padding: 8px;
+  background: white;
   border-radius: 8px;
   box-sizing: border-box;
-  border: 4px solid silver;
 }
 
-.content::before{
-  content: '';
-  position: absolute;
-  top: 65%;
-  left: -30px;
-  margin-top: -15px;
-  border: 15px solid transparent;
-  border-right: 15px solid #FFFFFF;
-  z-index: 2;
-
-}
-
-.content::after{
-  content: '';
-  position: absolute;
-  top: 65%;
-  left: -38px;
-  margin-top: -17px;
-  border: 17px solid transparent;
-  border-right: 18px solid silver;
-  z-index: 1;
-}
-
-.wrap-content{
+.inner{
   height: 100%;
-  width: 100%;
-  overflow: hidden;
+  font-size: 24px;
 }
 
-.content-button-area{
-  width: 100%;
-  height: 75px;
-  position: absolute;
-  bottom: 0;
-  box-sizing: border-box;
-}
-
-.single-button{
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  border: none;
-  background: silver;
-  font-size: 18px;
-  color: white;
-  font-weight: bold;
-}
-
-.double-button{
-  height: 100%;
-  width: 100%;
+.list-header{
   display: flex;
-}
-
-.back-button{
-  width: 50%;
-  margin: 0;
-  padding: 0;
-  font-size: 18px;
-  border: none;
-  background-color: whitesmoke;
-  color: gray;
+  height: 60px;
   font-weight: bold;
-}
-
-.next-button{
-  width: 50%;
-  margin: 0;
-  padding: 0;
-  font-size: 18px;
-  border: none;
-  background-color: lightgreen;
-  color: gray;
-  font-weight: bold;
-}
-
-.hidden{
-  display: none;
-}
-
-.content-button-area{
-  width: 100%;
-  height: 75px;
-  position: absolute;
-  bottom: 0;
+  border: 2px solid lightgray;
   box-sizing: border-box;
 }
 
-.single-button{
-  width: 100%;
-  height: 100%;
+.list-header > div,
+.list-body li > div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-border{
+  border-right: 2px solid lightgray;
+  box-sizing: border-box;
+}
+
+.name{
+  flex-grow: 1;
+}
+
+.purpose{
+  width: 130px;
+}
+
+.status{
+  width: 90px;
+}
+
+.list-body{
+  height: calc(100% - 60px);
+  border: 2px solid lightgray;
+  border-top: transparent;
+  box-sizing: border-box;
+  overflow: scroll;
+}
+
+.list-body ul{
+  list-style-type: none;
   margin: 0;
   padding: 0;
-  border: none;
-  background: silver;
-  font-size: 18px;
-  color: white;
-  font-weight: bold;
+}
+
+.list-body li{
+  display: flex;
+  height: 52px;
+}
+
+.list-body li:not(:last-child){
+  border-bottom: 2px solid lightgray;
+}
+
+.in{
+  background-color: #ffd400;
+}
+
+.out{
+  background-color: #ebebeb;
+}
+
+.study_meeting{
+  background-color: #F8F189;
+}
+
+.job{
+  background-color:#BBFEFF;
+}
+
+.self_learning{
+    background-color: #BCF3CB;
+}
+
+.circle{
+    background-color: #F4D8F5;
 }
