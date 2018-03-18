@@ -1,13 +1,13 @@
 const path = require('path');
 
 const config = {
+  mode: 'production',
   entry: path.resolve(__dirname, './src/client/index.jsx'),
   output: {
     path: path.resolve(__dirname, './public/js'),
     publicPath: '/js/',
     filename: 'bundle.js',
   },
-  devtool: 'inline-source-map',
   devServer: {
     contentBase: './public',
     watchContentBase: true,
@@ -33,10 +33,6 @@ const config = {
             },
           },
         ],
-      },
-      {
-        test: /\.spec\.js$/,
-        loader: 'webpack-espower-loader',
       },
     ],
   },
