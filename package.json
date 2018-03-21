@@ -9,7 +9,7 @@
     "start:client": "webpack-dev-server --mode development",
     "start:server": "babel src/server/app.js -o app.js -s && babel src/server/routes --out-dir routes --source-maps && babel src/server/modules --out-dir modules --source-maps",
     "flow": "flow",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -47,6 +47,7 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
+    "babel-jest": "^23.0.0-alpha.0",
     "babel-loader": "^7.1.4",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
@@ -57,9 +58,11 @@
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-flowtype": "^2.46.1",
     "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jest": "^21.15.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "flow-bin": "^0.65.0",
+    "jest": "^22.4.2",
     "json-server": "^0.12.1",
     "style-loader": "^0.19.1",
     "webpack": "^4.1.1",
