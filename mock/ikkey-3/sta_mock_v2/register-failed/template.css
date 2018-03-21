@@ -351,3 +351,17 @@ button:active{
   bottom: 10px;
   font-size: 30px;
 }
+
+.success{
+  position: absolute;
+  right: 10px;
+  bottom: 40px;
+  font-size: 20px;
+}
+
+.error{
+  position: absolute;
+  left: 10px;
+  bottom: 40px;
+  font-size: 20px;  
+}
