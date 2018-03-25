@@ -90,7 +90,7 @@ button:active{
   position: relative;
   width: 400px;
   height: 100%;
-  background: white;
+  background-color: white;
   color: gray;
   border-radius: 8px;
   box-sizing: border-box;
@@ -158,9 +158,9 @@ button:active{
   padding: 0;
   font-size: 18px;
   border: none;
-  border-radius: 0 0 0 4px;
-  background-color: whitesmoke;
-  color: gray;
+  border-radius: 0 0 4px 0;
+  background-color: #00bcd4;
+  color: white;
   font-weight: bold;
 }
 
@@ -172,8 +172,20 @@ button:active{
   border: none;
   border-radius: 0 0 4px 0;
   background-color: orange;
-  color: gray;
+  color: white;
   font-weight: bold;
+}
+
+.cancel-button{
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  border: none;
+  border-radius: 0 0 0 4px;
+  background-color: whitesmoke;
+  color: gray;
+  font-weight: bold;  
 }
 
 .hidden{
@@ -198,4 +210,144 @@ button:active{
   font-size: 18px;
   color: white;
   font-weight: bold;
+}
+
+.top{
+  position: relative;
+  height: calc(100% - 75px);
+}
+
+.content-header{
+  display: table;
+  width: 100%;
+  height: 52px;
+  list-style-type: none;
+  border-bottom: 4px solid silver;
+  border-radius: 4px 4px 0px 0px;
+  box-sizing: border-box;
+}
+
+.content-header > li{
+  display: table-cell;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.content-header > li > span{
+  display: flex;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 0;
+  align-items: center;
+}
+
+.active{
+  color: red;
+}
+
+.disabled{
+  color: lightgray;
+}
+
+.input-area{
+  position: relative;
+  height: calc(100% - 52px);
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.input-title{
+  display: flex;
+  height: 30px;
+  font-size: 18px;
+  margin: 0;
+  align-items: center;
+  text-align: center;
+}
+
+.input-wrap{
+  position: relative;
+  height: calc(100% - 30px);
+  padding: 0px 5px;
+  box-sizing: border-box;
+}
+
+.input-wrap > div{
+  position: relative;
+}
+
+.input-name-area{
+  height: 35%;
+}
+
+.label-name{
+  display: flex;
+  height: 40%;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.input-name{
+  height: 60%;
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 24px;
+}
+
+.input-email-area{
+  height: 65%;
+}
+
+.label-email{
+  display: flex;
+  height: 34%;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.input-email{
+  width: 100%;
+  height: 33%;
+  padding: 10px 20px;
+  font-size: 24px; 
+}
+
+.domain{
+  height: 33%;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.scan-text{
+  position: relative;
+  height: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.success{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 30px;
+}
+
+.error{
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font-size: 30px;  
 }

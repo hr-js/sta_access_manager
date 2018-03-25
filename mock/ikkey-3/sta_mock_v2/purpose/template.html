@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./template.css">
-  <title>テンプレート</title>
+  <title>目的一覧</title>
 </head>
 <body>
   <div class="container">
@@ -22,19 +22,12 @@
       </ul>
     </nav>
     <main class="main">
-      <div class="mascot">
-        <img class="mascot-img" src="/img/NEKO9V9A9115_TP_V4.jpg" alt="マスコットキャラ" />
-      </div>
-      <div class="content">
-        <div class="wrap-content">
-          <div class="content-button-area">
-            <button class="single-button">ボタン</button>
-            <div class="double-button hidden">
-              <button class="back-button">ボタン</button>
-              <button class="next-button">ボタン</button>              
-            </div>
-          </div>
-        </div>
+      <div class="purpose-area">
+        <button onclick="go('/purpose-study-meeting/template.html')" class="select-button study_meeting">勉強会</button>
+        <button onclick="go('/purpose-job/template.html')" class="select-button job">仕事</button>
+        <button onclick="go('/purpose-self-learning/template.html')" class="select-button self_learning">自習</button>
+        <button onclick="go('/purpose-circle/template.html')" class="select-button circle">サークル</button>
+        <div class = "message">目的は？</div>
       </div>
     </main>
     <script>
