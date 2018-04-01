@@ -12,7 +12,7 @@
     <nav class="menu">
       <ul class="menu-list">
         <li>
-          <button onclick="go('/top/top.html')" class="button">Top</button>
+          <button onclick="go('/top/top.html')" class="button">入退室処理</button>
         </li>
         <li>
           <button onclick="go('/register/template.html')" class="button selected">ユーザ登録</button>
@@ -32,10 +32,12 @@
             <div class="input-area">
               <div class="scan-text">登録に失敗しました。</div>
               <div class="sub">※管理者に問い合わせて下さい。</div>
+              <a class="success" href="/registering/template.html">再登録処理成功</a>
+              <a class="error" href="/registering-error/template.html">再登録処理失敗</a>
             </div>
           </div>
           <div class="content-button-area">
-              <button onclick="go('/top/top.html')" class="single-button">Topへ</button>
+              <button onclick="go('/top/top.html')" class="single-button">キャンセル</button>
           </div>
         </div>
       </div>
