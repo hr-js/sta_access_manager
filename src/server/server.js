@@ -8,8 +8,5 @@ const app: Express = express();
 const server: http.Server = http.createServer(app);
 
 initializeSocketIo(server);
-
-const dir: string = path.join(__dirname, 'public');
-app.use(express.static(dir));
-// サーバーを起動する部分
+app.use(express.static(path.join(__dirname, 'public')));
 server.listen(3000);
