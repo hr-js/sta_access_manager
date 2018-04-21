@@ -1,22 +1,19 @@
+// @flow
 import Server from 'socket.io';
-// エラー回避のためコメントアウトしています。
 // import NfcpyId from 'node-nfcpy-id';
-
-// const Sound = require('aplay');
+// import Sound from 'aplay';
 
 // const nfc = new NfcpyId().start();
 
-const setUpSocketIo = (server) => {
-  const io = Server(server);
-
-  io.on('connection', (socket) => {
+function initializeSocketIo(server: http.server) {
+  const io: Server.Server = Server(server);
+  io.on('connection', (socket: Server.Socket) => {
     console.log('接続しました。');
-
     socket.on('disconnect', () => {
       console.log('接続が切れました。');
     });
 
-    // touch scan
+    // // touch scan
     // nfc.on('touchstart', (card) => {
     //   console.log(`Card ID: ${card.id}`);
     //   console.log(`Card Type: ${card.type}`);
@@ -32,5 +29,5 @@ const setUpSocketIo = (server) => {
     //   console.error('\u001b[31m', err, '\u001b[0m');
     // });
   });
-};
-export default setUpSocketIo;
+}
+export default initializeSocketIo;

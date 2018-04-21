@@ -4,12 +4,12 @@
   "description": "入退室管理アプリ",
   "main": "index.js",
   "scripts": {
-    "start": "npm run start:client & npm run start:server && node ./bin/www",
-    "start:pro": "npm run start:client & npm run start:server && node ./bin/www",
+    "start": "npm run start:client & npm run start:server && node ./server/server.js",
     "start:client": "webpack-dev-server --mode development",
-    "start:server": "babel src/server/app.js -o app.js -s && babel src/server/routes --out-dir routes --source-maps && babel src/server/modules --out-dir modules --source-maps",
+    "start:server": "babel src/server/server.js -o server/server.js -s && babel src/server/modules --out-dir server/modules --source-maps",
     "flow": "flow",
-    "test": "jest"
+    "test": "jest",
+    "check": "eslint ./src"
   },
   "repository": {
     "type": "git",
