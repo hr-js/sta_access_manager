@@ -1,18 +1,20 @@
 // @flow
-import io from 'socket.io-client';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
+import io from "socket.io-client";
+import * as React from "react";
+import ReactDOM from "react-dom";
+import App from "./components/App";
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root'),
-);
+const root = document.getElementById("root");
+if (root === null) {
+  throw new Error("rootがnullです。");
+}
 
-const socket: SocketIOClient.Socket = io('localhost:3000');
+ReactDOM.render(<App />, root);
 
-socket.on('connect', () => {
-  socket.on('scan', (data: string) => {
+const socket: Socket = io("localhost:3000");
+
+socket.on("connect", () => {
+  socket.on("scan", (data: string) => {
     console.log(`message: ${data}`);
   });
 });

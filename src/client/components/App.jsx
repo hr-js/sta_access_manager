@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import * as React from "react";
 
 function App(): React.Node {
   return <h1>ハロー？</h1>;

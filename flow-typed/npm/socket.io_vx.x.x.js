@@ -1,4 +1,4 @@
-// flow-typed signature: 6e01b2e951f215bc8f829b559fa832dd
+// flow-typed signature: 161c379be8cbc57dfaaf7524e2647a21
 // flow-typed version: <<STUB>>/socket.io_v^2.0.4/flow_v0.65.0
 
 /**
@@ -34,6 +34,10 @@ declare module 'socket.io/lib/namespace' {
   declare module.exports: any;
 }
 
+declare module 'socket.io/lib/parent-namespace' {
+  declare module.exports: any;
+}
+
 declare module 'socket.io/lib/socket' {
   declare module.exports: any;
 }
@@ -47,6 +51,9 @@ declare module 'socket.io/lib/index.js' {
 }
 declare module 'socket.io/lib/namespace.js' {
   declare module.exports: $Exports<'socket.io/lib/namespace'>;
+}
+declare module 'socket.io/lib/parent-namespace.js' {
+  declare module.exports: $Exports<'socket.io/lib/parent-namespace'>;
 }
 declare module 'socket.io/lib/socket.js' {
   declare module.exports: $Exports<'socket.io/lib/socket'>;
