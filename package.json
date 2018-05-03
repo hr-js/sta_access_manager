@@ -4,9 +4,11 @@
   "description": "入退室管理アプリ",
   "main": "index.js",
   "scripts": {
-    "start": "npm run start:client & npm run start:server && node ./server/server.js",
+    "start":
+      "npm run start:client & npm run start:server && node ./server/server.js",
     "start:client": "webpack-dev-server --mode development",
-    "start:server": "babel src/server/server.js -o server/server.js -s && babel src/server/modules --out-dir server/modules --source-maps",
+    "start:server":
+      "babel src/server/server.js -o server/server.js -s && babel src/server/modules --out-dir server/modules --source-maps",
     "flow": "flow",
     "test": "jest"
   },
@@ -70,13 +72,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx}": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{css,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.{js,jsx}": ["eslint --fix", "git add"],
+    "*.{css,json,md}": ["prettier --write", "git add"]
   }
 }
