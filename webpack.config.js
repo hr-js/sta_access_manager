@@ -1,44 +1,44 @@
-const path = require('path');
+const path = require("path");
 
 const config = {
-  mode: 'production',
-  entry: path.resolve(__dirname, './src/client/index.jsx'),
+  mode: "production",
+  entry: path.resolve(__dirname, "./src/client/index.jsx"),
   output: {
-    path: path.resolve(__dirname, './client/js'),
-    publicPath: '/js/',
-    filename: 'bundle.js',
+    path: path.resolve(__dirname, "./client/js"),
+    publicPath: "/js/",
+    filename: "bundle.js"
   },
   devServer: {
-    contentBase: './public',
+    contentBase: "./public",
     watchContentBase: true,
     inline: true,
-    open: true,
+    open: true
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: 'babel-loader',
+        use: "babel-loader"
       },
       {
         test: /\.css$/,
         exclude: /node_modules/,
         use: [
-          { loader: 'style-loader' },
+          { loader: "style-loader" },
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
-              modules: true,
-            },
-          },
-        ],
-      },
-    ],
+              modules: true
+            }
+          }
+        ]
+      }
+    ]
   },
   resolve: {
-    extensions: ['.jsx', '.js'],
-  },
+    extensions: [".jsx", ".js"]
+  }
 };
 
 module.exports = config;

@@ -3,7 +3,8 @@
   "extends": [
     "airbnb",
     "plugin:jest/recommended",
-    "plugin:flowtype/recommended"
+    "plugin:flowtype/recommended",
+    "plugin:prettier/recommended"
   ],
   "plugins": ["flowtype","jest"],
   "env": {

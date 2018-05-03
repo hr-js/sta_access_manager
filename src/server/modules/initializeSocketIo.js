@@ -1,16 +1,16 @@
 // @flow
-import Server from 'socket.io';
+import SocketIo from "socket.io";
 // import NfcpyId from 'node-nfcpy-id';
 // import Sound from 'aplay';
 
 // const nfc = new NfcpyId().start();
 
-function initializeSocketIo(server: http.server) {
-  const io: Server.Server = Server(server);
-  io.on('connection', (socket: Server.Socket) => {
-    console.log('接続しました。');
-    socket.on('disconnect', () => {
-      console.log('接続が切れました。');
+function initializeSocketIo(server: Server) {
+  const io: Server = SocketIo(server);
+  io.on("connection", (socket: Server.Socket) => {
+    console.log("接続しました。");
+    socket.on("disconnect", () => {
+      console.log("接続が切れました。");
     });
 
     // // touch scan
