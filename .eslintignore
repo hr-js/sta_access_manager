@@ -1,4 +1,4 @@
-node_modules/
-public/js/
-flow-typed/
-server/
+./node_modules/
+./public/js/
+./flow-typed/
+./server/
