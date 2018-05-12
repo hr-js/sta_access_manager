@@ -9,6 +9,7 @@
     "start:client": "NODE_ENV=development webpack-dev-server --hot",
     "start:server":
       "babel src/server/server.js -o server/server.js -s && babel src/server/modules --out-dir server/modules --source-maps",
+    "build:client": "NODE_ENV=development webpack",
     "flow": "flow",
     "test": "jest"
   },

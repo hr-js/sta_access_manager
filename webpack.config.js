@@ -9,7 +9,7 @@ const config = {
   mode,
   entry: path.resolve(__dirname, "./src/client/index.jsx"),
   output: {
-    path: path.resolve(__dirname, "./client/js"),
+    path: path.resolve(__dirname, "./public/js"),
     publicPath: "/js/",
     filename: "bundle.js"
   },
