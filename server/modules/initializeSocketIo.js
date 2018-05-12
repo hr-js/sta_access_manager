@@ -1,14 +1,20 @@
-'use strict';
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _socket = require('socket.io');
+const _socket = require("socket.io");
 
-var _socket2 = _interopRequireDefault(_socket);
+const _socket2 = _interopRequireDefault(_socket);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+(function() {
+  const enterModule = require("react-hot-loader").enterModule;
+
+  enterModule && enterModule(module);
+})();
 
 // import NfcpyId from 'node-nfcpy-id';
 // import Sound from 'aplay';
@@ -16,11 +22,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // const nfc = new NfcpyId().start();
 
 function initializeSocketIo(server) {
-  var io = (0, _socket2.default)(server);
-  io.on('connection', function (socket) {
-    console.log('接続しました。');
-    socket.on('disconnect', function () {
-      console.log('接続が切れました。');
+  const io = (0, _socket2.default)(server);
+  io.on("connection", socket => {
+    console.log("接続しました。");
+    socket.on("disconnect", () => {
+      console.log("接続が切れました。");
     });
 
     // // touch scan
@@ -40,5 +46,27 @@ function initializeSocketIo(server) {
     // });
   });
 }
-exports.default = initializeSocketIo;
-//# sourceMappingURL=initializeSocketIo.js.map
+const _default = initializeSocketIo;
+exports.default = _default;
+(function() {
+  const reactHotLoader = require("react-hot-loader").default;
+
+  const leaveModule = require("react-hot-loader").leaveModule;
+
+  if (!reactHotLoader) {
+    return;
+  }
+
+  reactHotLoader.register(
+    initializeSocketIo,
+    "initializeSocketIo",
+    "src/server/modules/initializeSocketIo.js"
+  );
+  reactHotLoader.register(
+    _default,
+    "default",
+    "src/server/modules/initializeSocketIo.js"
+  );
+  leaveModule(module);
+})();
+// # sourceMappingURL=initializeSocketIo.js.map

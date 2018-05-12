@@ -1,7 +1,12 @@
 const path = require("path");
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+const mode = process.env.NODE_ENV || "production";
+const devtool = mode === "production" ? false : "source-map";
 
 const config = {
-  mode: "production",
+  mode,
   entry: path.resolve(__dirname, "./src/client/index.jsx"),
   output: {
     path: path.resolve(__dirname, "./client/js"),
@@ -10,10 +15,10 @@ const config = {
   },
   devServer: {
     contentBase: "./public",
-    watchContentBase: true,
-    inline: true,
+    // inline: true,
     open: true
   },
+  devtool,
   module: {
     rules: [
       {
@@ -38,7 +43,8 @@ const config = {
   },
   resolve: {
     extensions: [".jsx", ".js"]
-  }
+  },
+  plugins: [new HtmlWebpackPlugin(), new webpack.NamedModulesPlugin()]
 };
 
 module.exports = config;
