@@ -1,5 +1,5 @@
-// flow-typed signature: 17c6ca97e1e560b9bc0d3400f8b2882f
-// flow-typed version: a5bbe16c29/jest_v22.x.x/flow_>=v0.39.x
+// flow-typed signature: 069387a9f0aaed26ad0eb69da26f3e03
+// flow-typed version: 2c21d4538f/jest_v22.x.x/flow_>=v0.39.x
 
 type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
   (...args: TArguments): TReturn,
@@ -137,10 +137,13 @@ type EnzymeMatchersType = {
   toExist(): void,
   toHaveClassName(className: string): void,
   toHaveHTML(html: string): void,
-  toHaveProp: ((propKey: string, propValue?: any) => void) & ((props: Object) => void),
+  toHaveProp: ((propKey: string, propValue?: any) => void) &
+    ((props: Object) => void),
   toHaveRef(refName: string): void,
-  toHaveState: ((stateKey: string, stateValue?: any) => void) & ((state: Object) => void),
-  toHaveStyle: ((styleKey: string, styleValue?: any) => void) & ((style: Object) => void),
+  toHaveState: ((stateKey: string, stateValue?: any) => void) &
+    ((state: Object) => void),
+  toHaveStyle: ((styleKey: string, styleValue?: any) => void) &
+    ((style: Object) => void),
   toHaveTagName(tagName: string): void,
   toHaveText(text: string): void,
   toIncludeText(text: string): void,
@@ -451,7 +454,11 @@ type JestObjectType = {
    * Creates a mock function similar to jest.fn but also tracks calls to
    * object[methodName].
    */
-  spyOn(object: Object, methodName: string): JestMockFn<any, any>,
+  spyOn(
+    object: Object,
+    methodName: string,
+    accessType?: "get" | "set"
+  ): JestMockFn<any, any>,
   /**
    * Set the default timeout interval for tests and before/after hooks in milliseconds.
    * Note: The default timeout interval is 5 seconds if this method is not called.
@@ -574,7 +581,7 @@ type JestPrettyFormatColors = {
   content: { close: string, open: string },
   prop: { close: string, open: string },
   tag: { close: string, open: string },
-  value: { close: string, open: string },
+  value: { close: string, open: string }
 };
 
 type JestPrettyFormatIndent = string => string;
@@ -598,8 +605,8 @@ type JestPrettyFormatOptions = {|
     content: string,
     prop: string,
     tag: string,
-    value: string,
-  |},
+    value: string
+  |}
 |};
 
 type JestPrettyFormatPlugin = {
@@ -608,9 +615,9 @@ type JestPrettyFormatPlugin = {
     serialize: JestPrettyFormatPrint,
     indent: JestPrettyFormatIndent,
     opts: JestPrettyFormatOptions,
-    colors: JestPrettyFormatColors,
+    colors: JestPrettyFormatColors
   ) => string,
-  test: any => boolean,
+  test: any => boolean
 };
 
 type JestPrettyFormatPlugins = Array<JestPrettyFormatPlugin>;
@@ -618,7 +625,12 @@ type JestPrettyFormatPlugins = Array<JestPrettyFormatPlugin>;
 /** The expect function is used every time you want to test a value */
 declare var expect: {
   /** The object that you want to make assertions against */
-  (value: any): JestExpectType & JestPromiseType & EnzymeMatchersType & DomTestingLibraryType,
+  (
+    value: any
+  ): JestExpectType &
+    JestPromiseType &
+    EnzymeMatchersType &
+    DomTestingLibraryType,
   /** Add additional Jasmine matchers to Jest's roster */
   extend(matchers: { [name: string]: JestMatcher }): void,
   /** Add a module that formats application-specific data structures. */
