@@ -15,7 +15,6 @@ const config = {
   },
   devServer: {
     contentBase: "./public",
-    // inline: true,
     open: true
   },
   devtool,
