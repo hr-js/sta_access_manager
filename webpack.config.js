@@ -41,7 +41,10 @@ const config = {
     ]
   },
   resolve: {
-    extensions: [".jsx", ".js"]
+    extensions: [".jsx", ".js"],
+    alias: {
+      "@components": path.resolve(__dirname, "src/client/components")
+    }
   },
   plugins: [new HtmlWebpackPlugin(), new webpack.NamedModulesPlugin()]
 };
