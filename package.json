@@ -12,7 +12,8 @@
     "flow-typed": "flow-typed install",
     "build:client": "NODE_ENV=development webpack",
     "flow": "flow",
-    "test": "jest"
+    "test": "jest",
+    "storybook": "start-storybook -p 9001 -c ./src/client/components/storybook"
   },
   "repository": {
     "type": "git",
@@ -40,6 +41,7 @@
     "socket.io-client": "^2.0.4"
   },
   "devDependencies": {
+    "@storybook/react": "^3.4.8",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
