@@ -86,5 +86,10 @@
   "lint-staged": {
     "*.{js,jsx}": ["eslint --fix", "git add"],
     "*.{css,json,md}": ["prettier --write", "git add"]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "@components(.*)$": "<rootDir>/src/client/components$1"
+    }
   }
 }
