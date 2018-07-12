@@ -39,7 +39,9 @@ storiesOf("Menu", module)
 // #region MainFlame
 storiesOf("MainFlame", module).add("コンテンツのメインフレーム", () => (
   <ContainerFlame>
-    <MainFlame>コンテンツ</MainFlame>
+    <MainFlame>
+      <div className={styles.contentArea}>コンテンツ領域</div>
+    </MainFlame>
   </ContainerFlame>
 ));
 // #endregion MainFlame
