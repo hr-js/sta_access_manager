@@ -1,6 +1,25 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import App from "@components/App";
+import { action } from "@storybook/addon-actions";
+// components
+import Menu from "@components/Menu";
 
-// TODO: テスト実装のため、component作成時にこの例は削除する
-storiesOf("App", module).add("App.jsx", () => <App />);
+storiesOf("Menu", module)
+  .add("[ 入退室処理 ]選択時", () => (
+    <Menu
+      current="入退室処理"
+      onButtonClick={action("引数に文字列が渡される")}
+    />
+  ))
+  .add("[ ユーザ登録 ]選択時", () => (
+    <Menu
+      current="ユーザ登録"
+      onButtonClick={action("引数に文字列が渡される")}
+    />
+  ))
+  .add("[ 利用者一覧 ]選択時", () => (
+    <Menu
+      current="利用者一覧"
+      onButtonClick={action("引数に文字列が渡される")}
+    />
+  ));
