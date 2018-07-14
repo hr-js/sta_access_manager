@@ -2,7 +2,7 @@
 
 exports[`MainFlame.jsxのテスト スナップショット 正しいレンダリング 1`] = `
 <main
-  className="main"
+  className="main standard"
 >
   <div>
     test component

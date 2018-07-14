@@ -4,8 +4,42 @@
   position: relative;
   width: calc(100% - 170px);
   height: 100%;
-  background-color: lightgreen;
   margin-left: 170px;
   box-sizing: border-box;
   padding: 40px;
+}
+
+/* デフォルト背景 */
+.standard {
+  background-color: #90ee90;
+}
+
+/* 仕事 */
+.work {
+  background-color: #bbfeff;
+}
+
+/* 自習 */
+.study {
+  background-color: #bcf3cb;
+}
+
+/* 勉強会 */
+.meetUp {
+  background-color: #f8f189;
+}
+
+/* サークル */
+.circle {
+  background-color: #f4d8f5;
+}
+
+/* 退出 */
+.exit {
+  background-color: #00558f;
+}
+
+/* エラー */
+.error {
+  background-color: #ea0032;
 }
