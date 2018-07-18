@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
 import Status from "@components/Participant/Status";
 
-describe("Participant.Status.jsxjのテスト", () => {
+describe("Participant.Status.jsxのテスト", () => {
   describe("スナップショット", () => {
     it("正しいレンタリング", () => {
       const tree = renderer.create(<Status isEntry />).toJSON();
