@@ -20,6 +20,14 @@ describe("Participant.ListBody.jsxのテスト", () => {
     const listBody = shallow(<ListBody listData={shortParticipantData} />);
     const listItems = listBody.find("li");
 
+    it("各<li>のname項目には、渡されたdataのnameの値が表示されている", () => {
+      listItems.forEach((node, index) => {
+        expect(node.find(".columnName").text()).toBe(
+          shortParticipantData[index].name
+        );
+      });
+    });
+
     it("Purposeコンポーネントのpurposeに、値を渡している", () => {
       listItems.forEach((node, index) =>
         expect(
