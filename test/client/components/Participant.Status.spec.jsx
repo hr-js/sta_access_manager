@@ -5,7 +5,7 @@ import Status from "@components/Participant/Status";
 
 describe("Participant.Status.jsxのテスト", () => {
   describe("スナップショット", () => {
-    it("正しいレンタリング", () => {
+    it("正しいレンダリング", () => {
       const tree = renderer.create(<Status isEntry />).toJSON();
       expect(tree).toMatchSnapshot();
     });
