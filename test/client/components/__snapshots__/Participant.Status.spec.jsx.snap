@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Participant.Status.jsxjのテスト スナップショット 正しいレンタリング 1`] = `
+<div
+  className="columnStatus entry"
+>
+  入
+</div>
+`;

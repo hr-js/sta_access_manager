@@ -1,8 +1,9 @@
 import { configure } from "@storybook/react";
 
 function loadStories() {
-  // eslint-disable-next-line global-require
-  require("./index");
+  require("./stories/menu");
+  require("./stories/mainFlame");
+  require("./stories/participant");
 }
 
 configure(loadStories, module);
