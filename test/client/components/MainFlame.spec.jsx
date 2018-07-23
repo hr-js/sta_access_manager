@@ -30,7 +30,7 @@ describe("MainFlame.jsxのテスト", () => {
       expect(mainFlame.name()).toBe("main");
     });
 
-    it("cssクラス: mainをもつ", () => {
+    it("main要素は、cssクラス: mainFlameをもつ", () => {
       const mainFlame = shallow(
         <MainFlame>
           <TestComponent />
@@ -40,8 +40,17 @@ describe("MainFlame.jsxのテスト", () => {
         mainFlame
           .find("main")
           .at(0)
-          .hasClass("main")
+          .hasClass("mainFlame")
       ).toBeTruthy();
+    });
+
+    it("main要素の子要素は、cssクラス: mainをもつ", () => {
+      const mainFlame = shallow(
+        <MainFlame>
+          <TestComponent />
+        </MainFlame>
+      );
+      expect(mainFlame.children().hasClass("main")).toBeTruthy();
     });
 
     it("指定したコンポーネントを子コンポーネントとしてもつ", () => {
@@ -50,8 +59,8 @@ describe("MainFlame.jsxのテスト", () => {
           <TestComponent />
         </MainFlame>
       );
-      expect(mainFlame.children().contains(TestComponent)).toBeTruthy();
-      expect(mainFlame.children().text()).toBe("test component");
+      expect(mainFlame.contains(TestComponent)).toBeTruthy();
+      expect(mainFlame.find("TestComponent").text()).toBe("test component");
     });
 
     describe("type: workを指定した時", () => {

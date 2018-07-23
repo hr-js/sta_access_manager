@@ -8,23 +8,38 @@ type PropType = {
 };
 
 /**
- * デフォルトクラス + 背景クラスを取得
+ * 背景クラスを取得
  * backgroundで無効な値が指定されたら、デフォルト背景を指定
  */
 function getClassName(type: string): string {
-  const { main, standard, work, study, meetUp, circle, exit, error } = styles;
-  if (type === "work") return `${main} ${work}`;
-  if (type === "study") return `${main} ${study}`;
-  if (type === "meetUp") return `${main} ${meetUp}`;
-  if (type === "circle") return `${main} ${circle}`;
-  if (type === "exit") return `${main} ${exit}`;
-  if (type === "error") return `${main} ${error}`;
-  return `${main} ${standard}`;
+  const {
+    mainFlame,
+    standard,
+    work,
+    study,
+    meetUp,
+    circle,
+    exit,
+    error
+  } = styles;
+
+  if (type === "work") return `${mainFlame} ${work}`;
+  if (type === "study") return `${mainFlame} ${study}`;
+  if (type === "meetUp") return `${mainFlame} ${meetUp}`;
+  if (type === "circle") return `${mainFlame} ${circle}`;
+  if (type === "exit") return `${mainFlame} ${exit}`;
+  if (type === "error") return `${mainFlame} ${error}`;
+
+  return `${mainFlame} ${standard}`;
 }
 
 function MainFlame(props: PropType): React.Node {
   const { children, type } = props;
   const { main } = styles;
-  return <main className={getClassName(type)}>{children}</main>;
+  return (
+    <main className={getClassName(type)}>
+      <div className={main}>{children}</div>
+    </main>
+  );
 }
 export default MainFlame;
