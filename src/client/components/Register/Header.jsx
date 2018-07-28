@@ -3,7 +3,7 @@ import * as React from "react";
 import styles from "./style.css";
 
 type RegisterHeaderType = {
-  current: string
+  current: string | void
 };
 
 type ClassNameType = {
@@ -28,7 +28,7 @@ function getClassName(current: string): ClassNameType {
 }
 
 function Header(props: RegisterHeaderType): React.Node {
-  const { current } = props;
+  const { current = "" } = props;
   const { header } = styles;
   const { input, scan, completion } = getClassName(current);
   return (
