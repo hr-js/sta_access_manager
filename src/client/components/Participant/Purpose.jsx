@@ -3,7 +3,7 @@ import * as React from "react";
 import styles from "./style.css";
 
 type PurposeType = {
-  purpose: string
+  purpose: string | void
 };
 
 function Purpose(props: PurposeType): React.Node {
