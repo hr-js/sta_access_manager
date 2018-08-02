@@ -22,3 +22,4 @@ storiesOf("Menu", module)
       onButtonClick={action("引数に文字列が渡される")}
     />
   ));
+// linkTo('TodoItem', 'not completed')
