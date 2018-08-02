@@ -16,6 +16,10 @@
   font-weight: bold;
 }
 
+.singleButton > button:focus {
+  outline: none;
+}
+
 .default {
   background-color: #00bcd4;
   color: whitesmoke;
