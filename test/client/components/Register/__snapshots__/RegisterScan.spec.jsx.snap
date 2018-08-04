@@ -7,7 +7,7 @@ exports[`RegisterScan.jsxのテスト スナップショット 正しいレン�
   <div
     className="contentWithButton textOnly"
   >
-    カードをスキャンして下さい。
+    カードをスキャンして下さい
   </div>
   <div
     className="singleButton"

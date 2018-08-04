@@ -13,7 +13,7 @@ function RegisterScan(props: RegisterScanType): React.Node {
   return (
     <div className={main}>
       <div className={`${contentWithButton} ${textOnly}`}>
-        カードをスキャンして下さい。
+        カードをスキャンして下さい
       </div>
       <SingleButton
         text="キャンセル"
