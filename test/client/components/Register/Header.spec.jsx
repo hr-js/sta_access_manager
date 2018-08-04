@@ -74,6 +74,22 @@ describe("Register.Header.jsxのテスト", () => {
       });
     });
 
+    describe("currentにfailedを指定した時", () => {
+      const selectedInput = shallow(<Header current="failed" />).find("li");
+
+      it("li要素の0番目の子要素は、cssクラス: activeをもつ", () => {
+        expect(selectedInput.at(0).hasClass("disabled")).toBeTruthy();
+      });
+
+      it("li要素の1番目の子要素は、cssクラス: disabledをもつ", () => {
+        expect(selectedInput.at(1).hasClass("disabled")).toBeTruthy();
+      });
+
+      it("li要素の2番目の子要素は、cssクラス: disabledをもつ", () => {
+        expect(selectedInput.at(2).hasClass("disabled")).toBeTruthy();
+      });
+    });
+
     describe("currentにcompletionを指定した時", () => {
       const selectedCompletion = shallow(<Header current="completion" />).find(
         "li"
