@@ -4,6 +4,7 @@ import { action } from "@storybook/addon-actions";
 import MainFlame from "@components/MainFlame";
 import Header from "@components/Register/Header";
 import RegisterInput from "@components/Register/RegisterInput";
+import RegisterScan from "@components/Register/RegisterScan";
 import DummyContainer from "../DummyContainer";
 import styles from "./style.css";
 
@@ -23,8 +24,8 @@ storiesOf("Register", module)
             emailValue="hr-js"
             emailError=""
             onFirstNameChange={action("onFirstNameChange")}
-            onLastNameChange={action("onFirstNameChange")}
-            onEmailChange={action("onFirstNameChange")}
+            onLastNameChange={action("onLastNameChange")}
+            onEmailChange={action("onEmailChange")}
             onClickNextButton={() => {}}
             onSubmitForm={e => e.preventDefault()}
           />
@@ -45,11 +46,21 @@ storiesOf("Register", module)
             emailValue="hr-js"
             emailError="自分で設定可能です"
             onFirstNameChange={action("onFirstNameChange")}
-            onLastNameChange={action("onFirstNameChange")}
-            onEmailChange={action("onFirstNameChange")}
+            onLastNameChange={action("onLastNameChange")}
+            onEmailChange={action("onEmailChange")}
             onClickNextButton={() => {}}
             onSubmitForm={e => e.preventDefault()}
           />
+        </div>
+      </MainFlame>
+    </DummyContainer>
+  ))
+  .add("スキャン画面", () => (
+    <DummyContainer>
+      <MainFlame type="default">
+        <div className={container}>
+          <Header current="scan" />
+          <RegisterScan onCancelButton={action("onCancelButton")} />
         </div>
       </MainFlame>
     </DummyContainer>
