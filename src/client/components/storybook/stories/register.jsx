@@ -6,6 +6,7 @@ import Header from "@components/Register/Header";
 import RegisterInput from "@components/Register/RegisterInput";
 import RegisterScan from "@components/Register/RegisterScan";
 import RegistrationIn from "@components/Register/RegistrationIn";
+import RegisterFailed from "@components/Register/RegisterFailed";
 import DummyContainer from "../DummyContainer";
 import styles from "./style.css";
 
@@ -72,6 +73,16 @@ storiesOf("Register", module)
         <div className={container}>
           <Header current="scan" />
           <RegistrationIn />
+        </div>
+      </MainFlame>
+    </DummyContainer>
+  ))
+  .add("失敗画面", () => (
+    <DummyContainer>
+      <MainFlame type="default">
+        <div className={container}>
+          <Header current="failed" />
+          <RegisterFailed onBackButton={action("onBackButton")} />
         </div>
       </MainFlame>
     </DummyContainer>
