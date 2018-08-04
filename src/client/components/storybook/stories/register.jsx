@@ -5,6 +5,7 @@ import MainFlame from "@components/MainFlame";
 import Header from "@components/Register/Header";
 import RegisterInput from "@components/Register/RegisterInput";
 import RegisterScan from "@components/Register/RegisterScan";
+import RegistrationIn from "@components/Register/RegistrationIn";
 import DummyContainer from "../DummyContainer";
 import styles from "./style.css";
 
@@ -61,6 +62,16 @@ storiesOf("Register", module)
         <div className={container}>
           <Header current="scan" />
           <RegisterScan onCancelButton={action("onCancelButton")} />
+        </div>
+      </MainFlame>
+    </DummyContainer>
+  ))
+  .add("登録中画面", () => (
+    <DummyContainer>
+      <MainFlame type="default">
+        <div className={container}>
+          <Header current="scan" />
+          <RegistrationIn />
         </div>
       </MainFlame>
     </DummyContainer>
