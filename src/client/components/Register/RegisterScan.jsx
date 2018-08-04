@@ -9,10 +9,10 @@ type RegisterScanType = {
 
 function RegisterScan(props: RegisterScanType): React.Node {
   const { onCancelButton } = props;
-  const { main, scanText, contentWithButton } = styles;
+  const { main, textOnly, contentWithButton } = styles;
   return (
     <div className={main}>
-      <div className={`${contentWithButton} ${scanText}`}>
+      <div className={`${contentWithButton} ${textOnly}`}>
         カードをスキャンして下さい。
       </div>
       <SingleButton
