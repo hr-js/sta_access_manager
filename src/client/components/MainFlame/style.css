@@ -19,6 +19,7 @@
   border-radius: 8px;
   box-sizing: border-box;
   box-shadow: 0px 0px 4px 1px grey;
+  overflow: hidden;
 }
 
 /* デフォルト背景 */
