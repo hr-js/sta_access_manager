@@ -5,7 +5,7 @@ import styles from "./style.css";
 type SingleButtonType = {
   text: string | void,
   className: string | void,
-  onButtonClick: () => {} | void
+  onButtonClick: (e: SyntheticEvent<HTMLButtonElement>) => {} | void
 };
 
 function SingleButton(props: SingleButtonType): React.Node {
