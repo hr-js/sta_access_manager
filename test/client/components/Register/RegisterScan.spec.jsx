@@ -19,7 +19,7 @@ describe("RegisterScan.jsxのテスト", () => {
       expect(scan.hasClass("main")).toBeTruthy();
     });
 
-    it("子要素のdivは、cssクラス: contentWithButtonとscanTextをもつ", () => {
+    it("子要素のdivは、cssクラス: contentWithButtonとtextOnlyをもつ", () => {
       expect(
         scan
           .children()
@@ -30,7 +30,7 @@ describe("RegisterScan.jsxのテスト", () => {
         scan
           .children()
           .find("div")
-          .hasClass("scanText")
+          .hasClass("textOnly")
       ).toBeTruthy();
     });
 

@@ -5,7 +5,7 @@ exports[`RegisterScan.jsxのテスト スナップショット 正しいレン�
   className="main"
 >
   <div
-    className="contentWithButton scanText"
+    className="contentWithButton textOnly"
   >
     カードをスキャンして下さい。
   </div>

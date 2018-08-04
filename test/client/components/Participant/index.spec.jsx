@@ -4,7 +4,7 @@ import { shallow } from "enzyme";
 import Participant from "@components/Participant";
 import ListHeader from "@components/Participant/ListHeader";
 import ListBody from "@components/Participant/ListBody";
-import { shortParticipantData } from "./testData";
+import { shortParticipantData } from "../testData";
 
 describe("Participantのテスト", () => {
   describe("スナップショット", () => {
