@@ -4,6 +4,7 @@ function loadStories() {
   require("./stories/menu");
   require("./stories/top");
   require("./stories/mainFlame");
+  require("./stories/purpose");
   require("./stories/participant");
   require("./stories/register");
 }
