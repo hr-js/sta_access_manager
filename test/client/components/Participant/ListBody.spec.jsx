@@ -4,7 +4,7 @@ import { shallow } from "enzyme";
 import ListBody from "@components/Participant/ListBody";
 import Purpose from "@components/Participant/Purpose";
 import Status from "@components/Participant/Status";
-import { shortParticipantData, longParticipantData } from "./testData";
+import { shortParticipantData, longParticipantData } from "../testData";
 
 describe("Participant.ListBody.jsxのテスト", () => {
   describe("スナップショット", () => {

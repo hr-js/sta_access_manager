@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Purpose.jsx スナップショット 正しいレンダリング 1`] = `
+<div
+  className="container"
+>
+  <button
+    className="meetUp"
+    onClick={[Function]}
+  >
+    勉強会
+  </button>
+  <button
+    className="work"
+    onClick={[Function]}
+  >
+    仕事
+  </button>
+  <button
+    className="study"
+    onClick={[Function]}
+  >
+    自習
+  </button>
+  <button
+    className="circle"
+    onClick={[Function]}
+  >
+    サークル
+  </button>
+  <div
+    className="message"
+  >
+    目的を選択して下さい
+  </div>
+</div>
+`;

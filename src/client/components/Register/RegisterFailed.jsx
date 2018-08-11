@@ -3,24 +3,24 @@ import * as React from "react";
 import SingleButton from "@components/SingleButton";
 import styles from "./style.css";
 
-type RegisterScanType = {
-  onCancelButton: (e: SyntheticEvent<HTMLButtonElement>) => {}
+type RegisterFailedType = {
+  onBackButton: (e: SyntheticEvent<HTMLButtonElement>) => {}
 };
 
-function RegisterScan(props: RegisterScanType): React.Node {
-  const { onCancelButton } = props;
+function RegisterFailed(props: RegisterFailedType): React.Node {
+  const { onBackButton } = props;
   const { main, textOnly, contentWithButton } = styles;
   return (
     <div className={main}>
       <div className={`${contentWithButton} ${textOnly}`}>
-        カードをスキャンして下さい
+        登録に失敗しました
       </div>
       <SingleButton
-        text="キャンセル"
+        text="入力画面に戻る"
         className="default"
-        onButtonClick={onCancelButton}
+        onButtonClick={onBackButton}
       />
     </div>
   );
 }
-export default RegisterScan;
+export default RegisterFailed;

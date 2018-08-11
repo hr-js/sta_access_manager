@@ -18,8 +18,11 @@ function getClassName(current: string): ClassNameType {
   if (current === "input") {
     return { input: active, scan: disabled, completion: disabled };
   }
-  if (current === "scan") {
+  if (current === "scan" || current === "registrationIn") {
     return { scan: active, completion: disabled };
+  }
+  if (current === "failed") {
+    return { input: disabled, scan: disabled, completion: disabled };
   }
   if (current === "completion") {
     return { completion: active };
