@@ -22,6 +22,10 @@
   overflow: hidden;
 }
 
+.main > div {
+  height: 100%;
+}
+
 /* デフォルト背景 */
 .standard {
   background-color: #90ee90;
