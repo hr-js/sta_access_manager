@@ -19,7 +19,7 @@ describe("RegisterScan.jsxのテスト", () => {
       expect(scan.hasClass("main")).toBeTruthy();
     });
 
-    it("子要素のdivは、cssクラス: contentWithButtonとscanTextをもつ", () => {
+    it("子要素のdivは、cssクラス: contentWithButtonとtextOnlyをもつ", () => {
       expect(
         scan
           .children()
@@ -30,12 +30,22 @@ describe("RegisterScan.jsxのテスト", () => {
         scan
           .children()
           .find("div")
-          .hasClass("scanText")
+          .hasClass("textOnly")
       ).toBeTruthy();
+    });
+
+    it("「カードをスキャンして下さい」と表示されている", () => {
+      expect(
+        scan
+          .children()
+          .find("div")
+          .text()
+      ).toBe("カードをスキャンして下さい");
     });
 
     it("子要素のSingleButtonに、値を渡している", () => {
       expect(scan.find("SingleButton").prop("text")).toBe("キャンセル");
+      expect(scan.find("SingleButton").prop("className")).toBe("default");
       expect(scan.find("SingleButton").prop("onButtonClick")).toBe(onButton);
     });
 

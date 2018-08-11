@@ -5,6 +5,9 @@ import MainFlame from "@components/MainFlame";
 import Header from "@components/Register/Header";
 import RegisterInput from "@components/Register/RegisterInput";
 import RegisterScan from "@components/Register/RegisterScan";
+import RegistrationIn from "@components/Register/RegistrationIn";
+import RegisterFailed from "@components/Register/RegisterFailed";
+import RegisterSuccess from "@components/Register/RegisterSuccess";
 import DummyContainer from "../DummyContainer";
 import styles from "./style.css";
 
@@ -61,6 +64,36 @@ storiesOf("Register", module)
         <div className={container}>
           <Header current="scan" />
           <RegisterScan onCancelButton={action("onCancelButton")} />
+        </div>
+      </MainFlame>
+    </DummyContainer>
+  ))
+  .add("登録中画面", () => (
+    <DummyContainer>
+      <MainFlame type="default">
+        <div className={container}>
+          <Header current="scan" />
+          <RegistrationIn />
+        </div>
+      </MainFlame>
+    </DummyContainer>
+  ))
+  .add("登録失敗画面", () => (
+    <DummyContainer>
+      <MainFlame type="default">
+        <div className={container}>
+          <Header current="failed" />
+          <RegisterFailed onBackButton={action("onBackButton")} />
+        </div>
+      </MainFlame>
+    </DummyContainer>
+  ))
+  .add("登録完了画面", () => (
+    <DummyContainer>
+      <MainFlame type="default">
+        <div className={container}>
+          <Header current="completion" />
+          <RegisterSuccess onEntryButton={action("onEntryButton")} />
         </div>
       </MainFlame>
     </DummyContainer>
