@@ -5,6 +5,7 @@ function loadStories() {
   require("./stories/top");
   require("./stories/mainFlame");
   require("./stories/purpose");
+  require("./stories/common");
   require("./stories/participant");
   require("./stories/register");
 }
