@@ -12,22 +12,16 @@ describe("Participant.Status.jsxのテスト", () => {
   });
 
   describe("コンポーネントのテスト", () => {
-    describe("属性にisEntryを指定した時", () => {
-      it("共通のcssクラスの他にentryをもち、入と表示される", () => {
-        const status = shallow(<Status isEntry />);
-        expect(status.hasClass("columnStatus")).toBeTruthy();
-        expect(status.hasClass("entry")).toBeTruthy();
-        expect(status.text("入")).toBeTruthy();
-      });
+    it("isEntryを指定した時、共通cssクラス以外にentryを持ち、入と表示される", () => {
+      const status = shallow(<Status isEntry />);
+      expect(status.hasClass("entry")).toBeTruthy();
+      expect(status.text("入")).toBeTruthy();
     });
 
-    describe("属性にisEntryを指定しない時", () => {
-      it("共通のcssクラスの他にexitをもち、退と表示される", () => {
-        const status = shallow(<Status />);
-        expect(status.hasClass("columnStatus")).toBeTruthy();
-        expect(status.hasClass("exit")).toBeTruthy();
-        expect(status.text("退")).toBeTruthy();
-      });
+    it("isEntryを指定しない時、共通cssクラス以外にexitを持ち、退と表示される", () => {
+      const status = shallow(<Status />);
+      expect(status.hasClass("exit")).toBeTruthy();
+      expect(status.text("退")).toBeTruthy();
     });
   });
 });
