@@ -7,9 +7,7 @@ exports[`MainFlame.jsxのテスト スナップショット 正しいレンダ�
   <div
     className="main"
   >
-    <div>
-      test component
-    </div>
+    children
   </div>
 </main>
 `;
