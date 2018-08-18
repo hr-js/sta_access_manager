@@ -13,32 +13,26 @@ describe("SingleButton.jsxのテスト", () => {
 
   describe("コンポーネントのテスト", () => {
     const onClick = jest.fn();
-    const defaultButton = shallow(
+    const button = shallow(
       <SingleButton text="Single Button" onButtonClick={onClick} />
-    );
-    const button = defaultButton.find("button");
-    it("cssクラス: singleButtonをもつ", () => {
-      expect(defaultButton.hasClass("singleButton")).toBeTruthy();
-    });
+    ).find("button");
 
-    it("button要素はcssクラス: defaultをもつ", () => {
+    it("classNameを指定しない時、button要素はcssクラス: defaultをもつ", () => {
       expect(button.hasClass("default")).toBeTruthy();
     });
 
-    it("textに渡した文字列が表示される", () => {
+    it("classNameにnextと指定した時、button要素はcssクラス: nextをもつ", () => {
+      const nextButton = shallow(<SingleButton className="next" />);
+      expect(nextButton.find("button").hasClass("next")).toBeTruthy();
+    });
+
+    it("textに渡した値が、文表示される", () => {
       expect(button.text("Single Button")).toBeTruthy();
     });
 
-    it("クリックすると、onButtonClickに渡した関数が実行される", () => {
+    it("ボタンをクリックすると、onButtonClickに渡した関数が実行される", () => {
       button.simulate("click");
       expect(onClick).toBeCalled();
-    });
-
-    describe("classNameにnextと指定した時", () => {
-      it("button要素はcssクラス: nextをもつ", () => {
-        const nextButton = shallow(<SingleButton className="next" />);
-        expect(nextButton.find("button").hasClass("next")).toBeTruthy();
-      });
     });
   });
 });

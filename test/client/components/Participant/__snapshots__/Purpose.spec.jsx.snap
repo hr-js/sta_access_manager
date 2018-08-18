@@ -2,7 +2,7 @@
 
 exports[`Participant.Purpose.jsxのテスト スナップショット 正しいレンダリング 1`] = `
 <div
-  className="columnPurpose study border"
+  className="columnPurpose border study"
 >
   自習
 </div>

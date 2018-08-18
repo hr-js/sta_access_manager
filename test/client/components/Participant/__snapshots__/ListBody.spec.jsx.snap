@@ -14,7 +14,7 @@ exports[`Participant.ListBody.jsxのテスト スナップショット 正しい
         name1
       </div>
       <div
-        className="columnPurpose study border"
+        className="columnPurpose border study"
       >
         自習
       </div>
@@ -33,7 +33,7 @@ exports[`Participant.ListBody.jsxのテスト スナップショット 正しい
         name2
       </div>
       <div
-        className="columnPurpose study border"
+        className="columnPurpose border study"
       >
         自習
       </div>
@@ -52,7 +52,7 @@ exports[`Participant.ListBody.jsxのテスト スナップショット 正しい
         name3
       </div>
       <div
-        className="columnPurpose study border"
+        className="columnPurpose border study"
       >
         自習
       </div>
@@ -71,7 +71,7 @@ exports[`Participant.ListBody.jsxのテスト スナップショット 正しい
         name4
       </div>
       <div
-        className="columnPurpose study border"
+        className="columnPurpose border study"
       >
         自習
       </div>
@@ -90,7 +90,7 @@ exports[`Participant.ListBody.jsxのテスト スナップショット 正しい
         name5
       </div>
       <div
-        className="columnPurpose study border"
+        className="columnPurpose border study"
       >
         自習
       </div>
