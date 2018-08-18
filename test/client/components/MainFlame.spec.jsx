@@ -1,154 +1,74 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
 import MainFlame from "@components/MainFlame";
-
-// eslint-disable-next-line flowtype/require-return-type
-const TestComponent = () => <div>test component</div>;
 
 describe("MainFlame.jsxのテスト", () => {
   describe("スナップショット", () => {
     it("正しいレンダリング", () => {
-      const tree = renderer
-        .create(
-          <MainFlame>
-            <TestComponent />
-          </MainFlame>
-        )
-        .toJSON();
+      const tree = renderer.create(<MainFlame>children</MainFlame>).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });
 
   describe("コンポーネントのテスト", () => {
-    it("main要素をもつ", () => {
-      const mainFlame = shallow(
-        <MainFlame>
-          <TestComponent />
-        </MainFlame>
-      );
-      expect(mainFlame.name()).toBe("main");
-    });
-
-    it("main要素は、cssクラス: mainFlameをもつ", () => {
-      const mainFlame = shallow(
-        <MainFlame>
-          <TestComponent />
-        </MainFlame>
-      );
+    it("子要素が表示されている", () => {
+      // 文字の時
       expect(
-        mainFlame
-          .find("main")
-          .at(0)
-          .hasClass("mainFlame")
+        shallow(<MainFlame>children</MainFlame>)
+          .find(".main")
+          .text()
+      ).toBe("children");
+      // JSXの時
+      expect(
+        shallow(
+          <MainFlame>
+            <div>children</div>
+          </MainFlame>
+        )
+          .find(".main")
+          .contains(<div>children</div>)
       ).toBeTruthy();
     });
 
-    it("main要素の子要素は、cssクラス: mainをもつ", () => {
-      const mainFlame = shallow(
-        <MainFlame>
-          <TestComponent />
-        </MainFlame>
-      );
-      expect(mainFlame.children().hasClass("main")).toBeTruthy();
+    it("typeにworkを指定した時、main要素はcssクラス: workを持つ", () => {
+      const flame = shallow(<MainFlame type="work">test</MainFlame>);
+      expect(flame.find("main").hasClass("work")).toBeTruthy();
     });
 
-    it("指定したコンポーネントを子コンポーネントとしてもつ", () => {
-      const mainFlame = mount(
-        <MainFlame>
-          <TestComponent />
-        </MainFlame>
-      );
-      expect(mainFlame.contains(TestComponent)).toBeTruthy();
-      expect(mainFlame.find("TestComponent").text()).toBe("test component");
+    it("typeにstudyを指定した時、main要素はcssクラス: studyを持つ", () => {
+      const flame = shallow(<MainFlame type="study">test</MainFlame>);
+      expect(flame.find("main").hasClass("study")).toBeTruthy();
     });
 
-    describe("type: workを指定した時", () => {
-      it("cssクラス: workをもつ", () => {
-        const mainFlame = shallow(
-          <MainFlame type="work">
-            <TestComponent />
-          </MainFlame>
-        );
-        expect(mainFlame.find("main").hasClass("work")).toBeTruthy();
-      });
+    it("typeにmeetUpを指定した時、main要素はcssクラス: meetUpを持つ", () => {
+      const flame = shallow(<MainFlame type="meetUp">test</MainFlame>);
+      expect(flame.find("main").hasClass("meetUp")).toBeTruthy();
     });
 
-    describe("type: studyを指定した時", () => {
-      it("cssクラス: studyをもつ", () => {
-        const mainFlame = shallow(
-          <MainFlame type="study">
-            <TestComponent />
-          </MainFlame>
-        );
-        expect(mainFlame.find("main").hasClass("study")).toBeTruthy();
-      });
+    it("typeにcircleを指定した時、main要素はcssクラス: circleを持つ", () => {
+      const flame = shallow(<MainFlame type="circle">test</MainFlame>);
+      expect(flame.find("main").hasClass("circle")).toBeTruthy();
     });
 
-    describe("type: meetUpを指定した時", () => {
-      it("cssクラス: meetUpをもつ", () => {
-        const mainFlame = shallow(
-          <MainFlame type="meetUp">
-            <TestComponent />
-          </MainFlame>
-        );
-        expect(mainFlame.find("main").hasClass("meetUp")).toBeTruthy();
-      });
+    it("typeにexitを指定した時、main要素はcssクラス: exitを持つ", () => {
+      const flame = shallow(<MainFlame type="exit">test</MainFlame>);
+      expect(flame.find("main").hasClass("exit")).toBeTruthy();
     });
 
-    describe("type: circleを指定した時", () => {
-      it("cssクラス: circleをもつ", () => {
-        const mainFlame = shallow(
-          <MainFlame type="circle">
-            <TestComponent />
-          </MainFlame>
-        );
-        expect(mainFlame.find("main").hasClass("circle")).toBeTruthy();
-      });
+    it("typeにerrorを指定した時、main要素はcssクラス: errorを持つ", () => {
+      const flame = shallow(<MainFlame type="error">test</MainFlame>);
+      expect(flame.find("main").hasClass("error")).toBeTruthy();
     });
 
-    describe("type: exitを指定した時", () => {
-      it("cssクラス: exitをもつ", () => {
-        const mainFlame = shallow(
-          <MainFlame type="exit">
-            <TestComponent />
-          </MainFlame>
-        );
-        expect(mainFlame.find("main").hasClass("exit")).toBeTruthy();
-      });
+    it("typeに上記以外を指定した時、main要素はcssクラス: standardを持つ", () => {
+      const flame = shallow(<MainFlame type="test">test</MainFlame>);
+      expect(flame.find("main").hasClass("standard")).toBeTruthy();
     });
 
-    describe("type: errorを指定した時", () => {
-      it("cssクラス: errorをもつ", () => {
-        const mainFlame = shallow(
-          <MainFlame type="error">
-            <TestComponent />
-          </MainFlame>
-        );
-        expect(mainFlame.find("main").hasClass("error")).toBeTruthy();
-      });
-    });
-
-    describe("typeに上記以外を指定した時", () => {
-      it("cssクラス: standardをもつ", () => {
-        const mainFlame = shallow(
-          <MainFlame type="standard">
-            <TestComponent />
-          </MainFlame>
-        );
-        expect(mainFlame.find("main").hasClass("standard")).toBeTruthy();
-      });
-    });
-
-    describe("typeを指定しない時", () => {
-      it("cssクラス: standardをもつ", () => {
-        const mainFlame = shallow(
-          <MainFlame type="standard">
-            <TestComponent />
-          </MainFlame>
-        );
-        expect(mainFlame.find("main").hasClass("standard")).toBeTruthy();
-      });
+    it("typeに値を指定しない時、main要素はcssクラス: standardを持つ", () => {
+      const flame = shallow(<MainFlame>test</MainFlame>);
+      expect(flame.find("main").hasClass("standard")).toBeTruthy();
     });
   });
 });

@@ -31,34 +31,15 @@ describe("Register.Input.jsxのテスト", () => {
       />
     );
 
-    it("idに指定された値が、input要素のidに指定されている", () => {
-      expect(input.find("input").props().id).toBe("id");
+    it("label要素のhtmlForに、idで指定された値が渡されている", () => {
+      expect(input.find("label").prop("htmlFor")).toBe("id");
     });
 
-    it("labelに指定された値が、ラベルとして表示されている", () => {
+    it("label要素に、labelで指定された値が表示されている", () => {
       expect(input.find("label").text()).toBe("ラベル");
     });
 
-    it("valueに指定された値が、inputに入力されている", () => {
-      expect(input.find("input").props().value).toBe("value");
-    });
-
-    it("inputの内容が変更されたとき、onChangeに指定した関数が呼ばれる", () => {
-      input.find("input").simulate("change", "test");
-      expect(mockChange.mock.calls[0][0]).toBe("test");
-    });
-
-    describe("errorに空文字が指定されている時", () => {
-      it("エラーメッセージは表示されない", () => {
-        expect(input.find(".message").text()).toBe("");
-      });
-
-      it("input要素はcssクラス: inputをもつ", () => {
-        expect(input.find("input").hasClass("input")).toBeTruthy();
-      });
-    });
-
-    describe("errorに空文字以外が指定されている時", () => {
+    it("errorが1文字以上の時、エラーが表示される", () => {
       const badInput = shallow(
         <Input
           id="id"
@@ -68,14 +49,26 @@ describe("Register.Input.jsxのテスト", () => {
           onChange={mockChange}
         />
       );
+      expect(badInput.find(".message").text()).toBe("error");
+      expect(badInput.find("input").hasClass("bad")).toBeTruthy();
+    });
 
-      it("エラーメッセージとして表示される", () => {
-        expect(badInput.find(".message").text()).toBe("error");
-      });
+    it("errorが0文字の時、エラーは表示されない", () => {
+      expect(input.find(".message").text()).toBe("");
+      expect(input.find("input").hasClass("bad")).toBeFalsy();
+    });
 
-      it("input要素はcssクラス: inputとbadをもつ", () => {
-        expect(badInput.find("input").hasClass("input bad")).toBeTruthy();
-      });
+    it("input要素のidに、idに指定された値が渡されている", () => {
+      expect(input.find("input").prop("id")).toBe("id");
+    });
+
+    it("input要素に、valueで指定された値が入力されている", () => {
+      expect(input.find("input").prop("value")).toBe("value");
+    });
+
+    it("input要素の内容が変更された時、onChangeに指定した関数が呼ばれる", () => {
+      input.find("input").simulate("change", "test");
+      expect(mockChange.mock.calls[0][0]).toBe("test");
     });
   });
 });

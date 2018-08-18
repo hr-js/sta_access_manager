@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
 import RegisterInput from "@components/Register/RegisterInput";
 
 describe("RegisterInput.jsxのテスト", () => {
@@ -27,201 +27,117 @@ describe("RegisterInput.jsxのテスト", () => {
   });
 
   describe("コンポーネントのテスト", () => {
+    delete process.env.E_MAIL_DOMAIN;
+    /**
+     * testする内容
+     * - propsに指定された値, 関数が想定通りに表示されている、渡されている
+     */
     const onFirstNameChange = () => {};
     const onLastNameChange = () => {};
     const onEmailChange = () => {};
-    const onClickNextButton = jest.fn();
+    const onClickNextButton = () => {};
     const submitFunc = jest.fn();
-    const stantardInput = shallow(
+
+    const registerInput = shallow(
       <RegisterInput
+        firstNameError="firstNameError"
         firstNameValue="firstName"
-        firstNameError=""
-        lastNameValue="lastName"
-        lastNameError=""
-        emailValue="email"
-        emailError=""
         onFirstNameChange={onFirstNameChange}
+        lastNameError="lastNameError"
+        lastNameValue="lastName"
         onLastNameChange={onLastNameChange}
+        emailError="emailError"
+        emailValue="email"
         onEmailChange={onEmailChange}
         onClickNextButton={onClickNextButton}
         onSubmitForm={submitFunc}
       />
     );
 
-    it("cssクラス: mainをもつ", () => {
-      expect(stantardInput.hasClass("main")).toBeTruthy();
+    it("form要素のonSubmitに、onSubmitFormに指定した関数を渡している", () => {
+      expect(registerInput.find("form").prop("onSubmit")).toBe(submitFunc);
     });
 
-    it("form要素のonSubmitに関数を渡している", () => {
-      expect(stantardInput.find("form").prop("onSubmit")).toBe(submitFunc);
-    });
+    describe("Inputコンポーネント(firstName)", () => {
+      const firstName = registerInput.find("#firstName");
 
-    it("form要素の子要素divは、cssクラス: contentWithButtonをもつ", () => {
-      expect(
-        stantardInput.find("form > div").hasClass("contentWithButton")
-      ).toBeTruthy();
-    });
+      it("errorに、firstNameErrorで指定された値が渡されている", () => {
+        expect(firstName.prop("error")).toBe("firstNameError");
+      });
 
-    it("form要素の子要素divは、2つのdiv要素をもつ", () => {
-      expect(stantardInput.find("form > div").children()).toHaveLength(2);
-    });
+      it("valueに、firstNameValueで指定された値が渡されている", () => {
+        expect(firstName.prop("value")).toBe("firstName");
+      });
 
-    it("2つのdiv要素の1つ目は、cssクラス: inputNameをもつ", () => {
-      expect(
-        stantardInput
-          .find("form > div")
-          .childAt(0)
-          .hasClass("inputName")
-      ).toBeTruthy();
-    });
-
-    it("2つのdiv要素の2つ目は、cssクラス: inputEmailをもつ", () => {
-      expect(
-        stantardInput
-          .find("form > div")
-          .childAt(1)
-          .hasClass("inputEmail")
-      ).toBeTruthy();
-    });
-
-    it("2つのdiv要素の2つ目は、cssクラス: domainをもつspan要素をもつ", () => {
-      const span = stantardInput
-        .find("form > div")
-        .childAt(1)
-        .find("span");
-
-      expect(span).toHaveLength(1);
-      expect(span.hasClass("domain")).toBeTruthy();
-    });
-
-    it("form要素はInputコンポーネントを3つもつ", () => {
-      expect(stantardInput.find("Input")).toHaveLength(3);
-    });
-
-    it("1つ目のInputコンポーネントにfirstNameの情報を渡している", () => {
-      const { id, label, error, value, onChange } = stantardInput
-        .find("Input")
-        .at(0)
-        .props();
-
-      expect(id).toBe("firstName");
-      expect(label).toBe("姓");
-      expect(error).toBe("");
-      expect(value).toBe("firstName");
-      expect(onChange).toBe(onFirstNameChange);
-    });
-
-    it("2つ目のInputコンポーネントにlastNameの情報を渡している", () => {
-      const { id, label, error, value, onChange } = stantardInput
-        .find("Input")
-        .at(1)
-        .props();
-
-      expect(id).toBe("lastName");
-      expect(label).toBe("名");
-      expect(error).toBe("");
-      expect(value).toBe("lastName");
-      expect(onChange).toBe(onLastNameChange);
-    });
-
-    it("3つ目のInputコンポーネントにemailの情報を渡している", () => {
-      const { id, label, error, value, onChange } = stantardInput
-        .find("Input")
-        .at(2)
-        .props();
-
-      expect(id).toBe("email");
-      expect(label).toBe("Email");
-      expect(error).toBe("");
-      expect(value).toBe("email");
-      expect(onChange).toBe(onEmailChange);
-    });
-
-    it("form要素はSingleButtonコンポーネントを1つもつ", () => {
-      expect(stantardInput.find("SingleButton")).toHaveLength(1);
-    });
-
-    it("SingleButtonコンポーネントに必要な情報を渡している", () => {
-      const { text, className, onButtonClick } = stantardInput
-        .find("SingleButton")
-        .props();
-
-      expect(text).toBe("次へ");
-      expect(className).toBe("next");
-      expect(onButtonClick).toBe(onClickNextButton);
-    });
-
-    describe("process.env.E_MAIL_DOMAINが設定されていない時", () => {
-      it("メールアドレスのドメイン名は、デフォルト値", () => {
-        delete process.env.E_MAIL_DOMAIN;
-        const defaultDomainInput = shallow(
-          <RegisterInput
-            firstNameValue="firstName"
-            firstNameError=""
-            lastNameValue="lastName"
-            lastNameError=""
-            emailValue="email"
-            emailError=""
-            onFirstNameChange={onFirstNameChange}
-            onLastNameChange={onLastNameChange}
-            onEmailChange={onEmailChange}
-            onClickNextButton={onClickNextButton}
-            onSubmitForm={submitFunc}
-          />
-        );
-        expect(defaultDomainInput.find("span").text()).toBe("@hoge.com");
+      it("onChangeに、onFirstNameChangeで指定された関数が渡されている", () => {
+        expect(firstName.prop("onChange")).toBe(onFirstNameChange);
       });
     });
 
-    describe("process.env.E_MAIL_DOMAINが設定されてる時", () => {
-      it("メールアドレスのドメイン名は、設定された値", () => {
+    describe("Inputコンポーネント(lastName)", () => {
+      const lastName = registerInput.find("#lastName");
+
+      it("errorに、lastNameErrorで指定された値が渡されている", () => {
+        expect(lastName.prop("error")).toBe("lastNameError");
+      });
+
+      it("valueに、lastNameValueで指定された値が渡されている", () => {
+        expect(lastName.prop("value")).toBe("lastName");
+      });
+
+      it("onChangeに、onLastNameChangeで指定された関数が渡されている", () => {
+        expect(lastName.prop("onChange")).toBe(onLastNameChange);
+      });
+    });
+
+    describe("Inputコンポーネント(email)", () => {
+      const email = registerInput.find("#email");
+
+      it("errorに、emailErrorで指定された値が渡されている", () => {
+        expect(email.prop("error")).toBe("emailError");
+      });
+
+      it("valueに、emailValueで指定された値が渡されている", () => {
+        expect(email.prop("value")).toBe("email");
+      });
+
+      it("onChangeに、onEmailChangeで指定された関数が渡されている", () => {
+        expect(email.prop("onChange")).toBe(onEmailChange);
+      });
+
+      it("process.env.E_MAIL_DOMAINが設定されていない時、デフォルト値が表示される", () => {
+        expect(registerInput.find(".domain").text()).toBe("@hoge.com");
+      });
+
+      it("process.env.E_MAIL_DOMAINが設定されている時、設定された値が表示される", () => {
         process.env.E_MAIL_DOMAIN = "test.com";
-        const customDomainInput = shallow(
+
+        const fn = () => {};
+        const domain = shallow(
           <RegisterInput
-            firstNameValue="firstName"
             firstNameError=""
-            lastNameValue="lastName"
+            firstNameValue=""
+            onFirstNameChange={fn}
             lastNameError=""
-            emailValue="email"
+            lastNameValue=""
+            onLastNameChange={fn}
             emailError=""
-            onFirstNameChange={onFirstNameChange}
-            onLastNameChange={onLastNameChange}
-            onEmailChange={onEmailChange}
-            onClickNextButton={onClickNextButton}
-            onSubmitForm={submitFunc}
+            emailValue=""
+            onEmailChange={fn}
+            onClickNextButton={fn}
+            onSubmitForm={fn}
           />
-        );
-        expect(customDomainInput.find("span").text()).toBe("@test.com");
+        )
+          .find(".domain")
+          .text();
+
+        expect(domain).toBe("@test.com");
       });
     });
 
-    describe("SingleButtonをクリックした時", () => {
-      it("form要素のonSubmitに渡した関数が呼ばれる", () => {
-        const fullDom = mount(
-          <RegisterInput
-            firstNameValue="firstName"
-            firstNameError=""
-            lastNameValue="lastName"
-            lastNameError=""
-            emailValue="email"
-            emailError=""
-            onFirstNameChange={onFirstNameChange}
-            onLastNameChange={onLastNameChange}
-            onEmailChange={onEmailChange}
-            onClickNextButton={onClickNextButton}
-            onSubmitForm={submitFunc}
-          />
-        );
-        // クリック
-        fullDom
-          .find("SingleButton")
-          .find("button")
-          .simulate("click");
-        expect(onClickNextButton).toBeCalled();
-        // submit(ブラウザと違うため明示的にsubmit操作を行う)
-        fullDom.find("form").simulate("submit");
-        expect(submitFunc).toBeCalled();
-      });
+    it("SingleButtonをクリックした時、form要素のonSubmitに渡した関数が呼ばれる", () => {
+      registerInput.find("form").simulate("submit");
+      expect(submitFunc).toBeCalled();
     });
   });
 });
