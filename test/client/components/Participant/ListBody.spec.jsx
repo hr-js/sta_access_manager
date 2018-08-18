@@ -17,10 +17,11 @@ describe("Participant.ListBody.jsxのテスト", () => {
   });
 
   describe("コンポーネントのテスト", () => {
-    const listBody = shallow(<ListBody listData={shortParticipantData} />);
-    const listItems = listBody.find("li");
+    const listItems = shallow(
+      <ListBody listData={shortParticipantData} />
+    ).find("li");
 
-    it("各<li>のname項目には、渡されたdataのnameの値が表示されている", () => {
+    it("各li要素には、listDataで渡されたnameの値が表示されている", () => {
       listItems.forEach((node, index) => {
         expect(node.find(".columnName").text()).toBe(
           shortParticipantData[index].name
@@ -28,7 +29,7 @@ describe("Participant.ListBody.jsxのテスト", () => {
       });
     });
 
-    it("Purposeコンポーネントのpurposeに、値を渡している", () => {
+    it("Purposeコンポーネントのpurposeに、listDataで渡されたpurposeの値が渡されている", () => {
       listItems.forEach((node, index) =>
         expect(
           node.contains(
@@ -38,7 +39,7 @@ describe("Participant.ListBody.jsxのテスト", () => {
       );
     });
 
-    it("StatusコンポーネントのisEntryに、値を渡している", () => {
+    it("StatusコンポーネントのisEntryに、listDataで渡されたisEntryの値が渡されている", () => {
       listItems.forEach((node, index) =>
         expect(
           node.contains(
@@ -48,25 +49,24 @@ describe("Participant.ListBody.jsxのテスト", () => {
       );
     });
 
-    it("listItemの要素全てにcssクラス: buttomをもつ", () => {
+    it("listDataの長さが5以下の時、全ての要素はcssクラス: buttomを持つ", () => {
       listItems.forEach(node => {
         expect(node.hasClass("buttom")).toBeTruthy();
       });
     });
 
-    describe("listDataにlongParticipantDataを指定した時", () => {
-      it("最後の要素はcssクラス: buttomをもたない", () => {
-        const longListItems = shallow(
-          <ListBody listData={longParticipantData} />
-        ).find("li");
-        const { length } = longListItems;
-        longListItems.forEach((node, index) => {
-          if (index === length - 1) {
-            expect(node.hasClass("buttom")).toBeFalsy();
-          } else {
-            expect(node.hasClass("buttom")).toBeTruthy();
-          }
-        });
+    it("listDataの長さが6以上の時、最後の要素のみcssクラス: buttomを持たない", () => {
+      const longListItems = shallow(
+        <ListBody listData={longParticipantData} />
+      ).find("li");
+      const { length } = longListItems;
+
+      longListItems.forEach((node, index) => {
+        if (index === length - 1) {
+          expect(node.hasClass("buttom")).toBeFalsy();
+        } else {
+          expect(node.hasClass("buttom")).toBeTruthy();
+        }
       });
     });
   });

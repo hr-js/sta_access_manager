@@ -4,14 +4,14 @@ import styles from "./style.css";
 
 type PropType = {
   children: React.Node,
-  type: string
+  type: string | void
 };
 
 /**
  * 背景クラスを取得
  * backgroundで無効な値が指定されたら、デフォルト背景を指定
  */
-function getClassName(type: string): string {
+function getClassName(type: string = ""): string {
   const {
     mainFlame,
     standard,

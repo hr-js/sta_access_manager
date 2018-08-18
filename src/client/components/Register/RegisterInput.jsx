@@ -22,12 +22,12 @@ function RegisterInput(props: RegisterInputType): React.Node {
   const {
     firstNameValue,
     firstNameError,
+    onFirstNameChange,
     lastNameValue,
     lastNameError,
+    onLastNameChange,
     emailValue,
     emailError,
-    onFirstNameChange,
-    onLastNameChange,
     onEmailChange,
     onClickNextButton,
     onSubmitForm

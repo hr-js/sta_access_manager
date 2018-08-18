@@ -3,7 +3,7 @@ import * as React from "react";
 import styles from "./style.css";
 
 type PurposeType = {
-  purpose: string | void
+  purpose: string
 };
 
 function Purpose(props: PurposeType): React.Node {
@@ -31,7 +31,7 @@ function Purpose(props: PurposeType): React.Node {
   }
 
   return (
-    <div className={`${columnPurpose} ${background} ${border}`}>{value}</div>
+    <div className={`${columnPurpose} ${border} ${background}`}>{value}</div>
   );
 }
 export default Purpose;
