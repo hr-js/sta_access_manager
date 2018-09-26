@@ -103,8 +103,8 @@ describe("actionsのテスト", () => {
         }
       }
     ];
-    const expectedAction = { type: "ADD_PARTICIPANT", participant };
-    expect(actions.addParticipant(participant)).toEqual(expectedAction);
+    const expectedAction = { type: "SET_PARTICIPANT", participant };
+    expect(actions.setParticipantAction(participant)).toEqual(expectedAction);
   });
 
   it("参加者一覧削除アクションが作成される", () => {

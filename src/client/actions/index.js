@@ -7,7 +7,7 @@ import type {
   ChangeLastNameAction,
   ChangeMailAddressAction,
   ChangeRegisterStepAction,
-  AddParticipantAction
+  SetParticipantAction
 } from "@types";
 
 // isConnected
@@ -144,9 +144,11 @@ export function hideInputValidationResult(): OnlyTypeAction {
 /**
  * Participant
  */
-export function addParticipant(participant: Array<User>): AddParticipantAction {
+export function setParticipantAction(
+  participant: Array<User>
+): SetParticipantAction {
   return {
-    type: "ADD_PARTICIPANT",
+    type: "SET_PARTICIPANT",
     participant
   };
 }
