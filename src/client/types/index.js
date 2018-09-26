@@ -264,8 +264,8 @@ export type ChangeRegisterStepAction = {
   +registerStep: string
 };
 
-export type AddParticipantAction = {
-  type: "ADD_PARTICIPANT",
+export type SetParticipantAction = {
+  type: "SET_PARTICIPANT",
   +participant: Array<User>
 };
 
@@ -277,7 +277,7 @@ export type Action =
   | ChangeLastNameAction
   | ChangeMailAddressAction
   | ChangeRegisterStepAction
-  | AddParticipantAction;
+  | SetParticipantAction;
 
 // Dispatch
 export type Dispatch = ReduxDispatch<Action>;
