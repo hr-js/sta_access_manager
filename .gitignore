@@ -63,10 +63,12 @@ typings/
 # ビルドファイル
 /public/js/bundle.js
 /public/js/bundle.js.map
-/server
+/server/**
+!/server/.gitkeep
 
 # 音楽ファイル
-assets/
+/assets/music/**
+!/assets/music/.gitkeep
 
 # mapファイル
 **/*.js.map
