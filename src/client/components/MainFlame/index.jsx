@@ -1,11 +1,8 @@
 // @flow
+import type { MainFlameProps } from "@types";
+
 import * as React from "react";
 import styles from "./style.css";
-
-type PropType = {
-  children: React.Node,
-  type: string | void
-};
 
 /**
  * 背景クラスを取得
@@ -33,7 +30,7 @@ function getClassName(type: string = ""): string {
   return `${mainFlame} ${standard}`;
 }
 
-function MainFlame(props: PropType): React.Node {
+function MainFlame(props: MainFlameProps): React.Node {
   const { children, type } = props;
   const { main } = styles;
   return (
