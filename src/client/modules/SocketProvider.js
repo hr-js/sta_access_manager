@@ -133,10 +133,11 @@ class SocketProvider {
     const { method, path } = API_POST_REGISTER;
     const url: string = createApiUrl(path);
     const { id, firstName, lastName, mailAddress } = this.store.getState();
+    const domain = process.env.MAIL_DOMAIN || "hoge.com";
     const data = {
       id,
       user: {
-        mail: mailAddress,
+        mail: `${mailAddress}@${domain}`,
         name: `${firstName} ${lastName}`
       }
     };
