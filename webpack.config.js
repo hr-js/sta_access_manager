@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 const mode = process.env.NODE_ENV || "production";
 const devtool = mode === "production" ? false : "source-map";
@@ -15,6 +16,7 @@ const config = {
   },
   devServer: {
     contentBase: "./public",
+    historyApiFallback: true,
     open: true
   },
   devtool,
@@ -43,10 +45,21 @@ const config = {
   resolve: {
     extensions: [".jsx", ".js"],
     alias: {
-      "@components": path.resolve(__dirname, "src/client/components")
+      "@actions": path.resolve(__dirname, "src/client/actions"),
+      "@components": path.resolve(__dirname, "src/client/components"),
+      "@containers": path.resolve(__dirname, "src/client/containers"),
+      "@modules": path.resolve(__dirname, "src/client/modules"),
+      "@reducers": path.resolve(__dirname, "src/client/reducers"),
+      "@selectors": path.resolve(__dirname, "src/client/selectors"),
+      "@types": path.resolve(__dirname, "src/client/types"),
+      "@constants": path.resolve(__dirname, "src/client/constants.js")
     }
   },
-  plugins: [new HtmlWebpackPlugin(), new webpack.NamedModulesPlugin()]
+  plugins: [
+    new HtmlWebpackPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new Dotenv()
+  ]
 };
 
 module.exports = config;

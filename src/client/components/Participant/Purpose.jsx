@@ -1,31 +1,30 @@
 // @flow
+import type { ParticipantPurposeProps } from "@types";
+
 import * as React from "react";
+import { MEET_UP, STUDY, WORK, CIRCLE } from "@constants";
 import styles from "./style.css";
 
-type PurposeType = {
-  purpose: string
-};
-
-function Purpose(props: PurposeType): React.Node {
+function Purpose(props: ParticipantPurposeProps): React.Node {
   const { purpose } = props;
   const { columnPurpose, border, work, study, meetUp, circle } = styles;
 
   let background: string = "";
   let value: string = "";
 
-  if (purpose === "study") {
-    background = study;
-    value = "自習";
-  }
-  if (purpose === "meetUp") {
+  if (purpose === MEET_UP) {
     background = meetUp;
     value = "勉強会";
   }
-  if (purpose === "work") {
+  if (purpose === STUDY) {
+    background = study;
+    value = "自習";
+  }
+  if (purpose === WORK) {
     background = work;
     value = "仕事";
   }
-  if (purpose === "circle") {
+  if (purpose === CIRCLE) {
     background = circle;
     value = "サークル";
   }

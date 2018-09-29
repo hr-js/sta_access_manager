@@ -1,27 +1,31 @@
 // @flow
+import type { ParticipantProps } from "@types";
+
 import * as React from "react";
 import ListHeader from "./ListHeader";
-import type { DataType } from "./ListBody";
 import ListBody from "./ListBody";
 import styles from "./style.css";
 
-// 参加者
-type ParticipantType = {
-  data: Array<DataType>
-};
+class Participant extends React.Component<ParticipantProps> {
+  componentDidMount() {
+    this.props.refresh();
+    this.props.selectedMenu();
+    this.props.getParticipant();
+  }
 
-function Participant(props: ParticipantType): React.Node {
-  const { flame, list } = styles;
-  const { data } = props;
+  render(): React.Node {
+    const { flame, list } = styles;
+    const { participant } = this.props;
 
-  return (
-    <div className={flame}>
-      <div className={list}>
-        <ListHeader />
-        <ListBody listData={data} />
+    return (
+      <div className={flame}>
+        <div className={list}>
+          <ListHeader />
+          <ListBody listData={participant} />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Participant;

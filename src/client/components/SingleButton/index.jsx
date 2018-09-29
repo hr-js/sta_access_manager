@@ -1,14 +1,10 @@
 // @flow
+import type { SingleButtonProps } from "@types";
+
 import * as React from "react";
 import styles from "./style.css";
 
-type SingleButtonType = {
-  text: string | void,
-  className: string | void,
-  onButtonClick: (e: SyntheticEvent<HTMLButtonElement>) => {} | void
-};
-
-function SingleButton(props: SingleButtonType): React.Node {
+function SingleButton(props: SingleButtonProps): React.Node {
   const { text = "", className = "default", onButtonClick } = props;
   const { singleButton } = styles;
 
