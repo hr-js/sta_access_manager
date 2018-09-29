@@ -1,12 +1,10 @@
 // @flow
+import type { ParticipantStatusProps } from "@types";
+
 import * as React from "react";
 import styles from "./style.css";
 
-type StatusType = {
-  isEntry: boolean
-};
-
-function Status(props: StatusType): React.Node {
+function Status(props: ParticipantStatusProps): React.Node {
   const { isEntry } = props;
   const { columnStatus, entry, exit } = styles;
 
