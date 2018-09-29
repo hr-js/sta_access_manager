@@ -78,11 +78,11 @@ export type Response = {
  */
 // Common
 export type CommonProps = {
-  +type?: string,
+  +type: string,
   +text: string,
-  +subText?: string,
+  +subText: string,
   +buttonText: string,
-  +buttonClass?: string,
+  +buttonClass: string,
   +onButtonClick: (e: SyntheticEvent<HTMLButtonElement>) => {},
   +autoPageTransition: () => {}
 };
