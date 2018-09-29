@@ -8,7 +8,7 @@
       "npm run start:client & npm run start:server && node ./server/server.js",
     "start:client": "NODE_ENV=development webpack-dev-server --hot",
     "start:server":
-      "babel src/server/server.js -o server/server.js -s && babel src/server/modules --out-dir server/modules --source-maps",
+      "babel src/server/index.js -o server/index.js -s && babel src/server/modules --out-dir server/modules --source-maps",
     "flow-typed": "flow-typed install",
     "build:client": "NODE_ENV=development webpack",
     "flow": "flow",
