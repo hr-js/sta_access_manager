@@ -1,7 +1,4 @@
 // @flow
-/* eslint flowtype/require-return-type: 0 */
-/* eslint flowtype/no-weak-types: 0 */
-/* eslint no-unused-expressions: ["error", { "allowTaggedTemplates": true }] */
 import type { $AxiosError } from "axios";
 import type { Socket } from "socket.io-client";
 import type { Store, Dispatch, RequestBody, CreateApiUrlOptions } from "@types";
@@ -52,13 +49,7 @@ class SocketProvider {
   }
 
   addEventListener(): void {
-    // TODO: デバッグ用削除する
-    this.socket.on("connect", () => {
-      console.log("socket: connect");
-    });
-    // TODO: デバッグ用削除する
     this.socket.on("disconnect", () => {
-      console.log("socket: disconnect");
       this.socket.open();
     });
     this.socket.on("scan", this.scan.bind(this));
