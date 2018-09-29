@@ -1,34 +1,29 @@
 // @flow
+import type { RegisterInputProps } from "@types";
+
 import * as React from "react";
 import styles from "./style.css";
 
-type InputType = {
-  id: string,
-  label: string,
-  error: string,
-  value: string,
-  onChange: (e: SyntheticInputEvent<HTMLInputElement>) => {}
-};
+function Input(props: RegisterInputProps): React.Node {
+  const { id, label, error, value, canShow, onChange } = props;
+  const { inputArea, input, bad, message, hidden } = styles;
 
-function Input(props: InputType): React.Node {
-  const { id, label, error, value, onChange } = props;
-  const { inputArea, input, bad, message } = styles;
-
-  const inputClass = error.length > 0 ? `${input} ${bad}` : input;
+  const errorMessage = canShow ? message : `${message} ${hidden}`;
+  const inputClass = error.length > 0 && canShow ? `${input} ${bad}` : input;
 
   return (
     <div className={inputArea}>
       <label htmlFor={id}>
         {label}
-        <span className={message}>{error}</span>
+        <span className={errorMessage}>{error}</span>
+        <input
+          id={id}
+          className={inputClass}
+          type="text"
+          value={value}
+          onChange={onChange}
+        />
       </label>
-      <input
-        id={id}
-        className={inputClass}
-        type="text"
-        value={value}
-        onChange={onChange}
-      />
     </div>
   );
 }

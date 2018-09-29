@@ -1,39 +1,32 @@
 // @flow
+import type { RegisterHeaderClassName, RegisterHeaderProps } from "@types";
+
 import * as React from "react";
+import { INPUT, SCAN, COMPLETION } from "@constants";
 import styles from "./style.css";
 
-type RegisterHeaderType = {
-  current: string | void
-};
-
-type ClassNameType = {
-  input?: string,
-  scan?: string,
-  completion?: string
-};
-
-function getClassName(current: string): ClassNameType {
+function getClassName(registerStep: string): RegisterHeaderClassName {
   const { active, disabled } = styles;
 
-  if (current === "input") {
+  if (registerStep === INPUT) {
     return { input: active, scan: disabled, completion: disabled };
   }
-  if (current === "scan" || current === "registrationIn") {
+
+  if (registerStep === SCAN) {
     return { scan: active, completion: disabled };
   }
-  if (current === "failed") {
-    return { input: disabled, scan: disabled, completion: disabled };
-  }
-  if (current === "completion") {
+
+  if (registerStep === COMPLETION) {
     return { completion: active };
   }
-  return {};
+
+  return { input: disabled, scan: disabled, completion: disabled };
 }
 
-function Header(props: RegisterHeaderType): React.Node {
-  const { current = "" } = props;
+function Header(props: RegisterHeaderProps): React.Node {
+  const { registerStep } = props;
   const { header } = styles;
-  const { input, scan, completion } = getClassName(current);
+  const { input, scan, completion } = getClassName(registerStep);
   return (
     <ol className={header}>
       <li className={input}>
