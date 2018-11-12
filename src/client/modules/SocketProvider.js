@@ -46,13 +46,14 @@ class SocketProvider {
   constructor(url: string, store: Store) {
     this.socket = io(url);
     this.store = store;
+    this.scan.bind(this);
   }
 
   addEventListener(): void {
     this.socket.on("disconnect", () => {
       this.socket.open();
     });
-    this.socket.on("scan", this.scan.bind(this));
+    this.socket.on("scan", this.scan);
   }
 
   scan(id: string): void {
@@ -79,9 +80,9 @@ class SocketProvider {
     const url: string = createApiUrl(path, options);
 
     try {
-      this.store.dispatch(push(requestStart()));
+      this.store.dispatch(requestStart());
       const res = await request({ url, method });
-      this.store.dispatch(push(requestEnd()));
+      this.store.dispatch(requestEnd());
 
       if (!res.data || !res.data.user) {
         // データエラー
@@ -111,9 +112,9 @@ class SocketProvider {
     const url: string = createApiUrl(path);
 
     try {
-      this.store.dispatch(push(requestStart()));
+      this.store.dispatch(requestStart());
       await request({ url, method, data });
-      this.store.dispatch(push(requestEnd()));
+      this.store.dispatch(requestEnd());
 
       this.store.dispatch(removeId());
       this.store.dispatch(push(COMPLETION_EXIT_PATH));
@@ -133,12 +134,12 @@ class SocketProvider {
     const { method, path } = API_POST_REGISTER;
     const url: string = createApiUrl(path);
     const { id, firstName, lastName, mailAddress } = this.store.getState();
-    const domain = process.env.MAIL_DOMAIN || "hoge.com";
+    const domain = process.env.MAIL_DOMAIN || "";
     const data = {
       id,
       user: {
         mail: `${mailAddress}@${domain}`,
-        name: `${firstName} ${lastName}`
+        name: `${lastName} ${firstName}`
       }
     };
 
@@ -167,9 +168,7 @@ class SocketProvider {
     if (!/^[0-9a-f]{16}$/.test(id)) return false;
 
     const { isConnected } = this.store.getState();
-    if (isConnected) return false;
-
-    return true;
+    return !isConnected;
   }
 
   /**
