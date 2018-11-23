@@ -8,4 +8,9 @@ if (root === null) {
   throw new Error("rootがnullです。");
 }
 
-ReactDOM.render(<App />, root);
+ReactDOM.render(<App />, root, () => {
+  setTimeout(() => {
+    const element = document.getElementById("launch");
+    if (element) element.classList.add("fade-out");
+  }, 8000);
+});
