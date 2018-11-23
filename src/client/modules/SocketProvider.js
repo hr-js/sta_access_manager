@@ -46,14 +46,13 @@ class SocketProvider {
   constructor(url: string, store: Store) {
     this.socket = io(url);
     this.store = store;
-    this.scan.bind(this);
   }
 
   addEventListener(): void {
     this.socket.on("disconnect", () => {
       this.socket.open();
     });
-    this.socket.on("scan", this.scan);
+    this.socket.on("scan", this.scan.bind(this));
   }
 
   scan(id: string): void {
