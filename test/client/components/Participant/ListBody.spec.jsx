@@ -24,7 +24,7 @@ describe("Participant.ListBody.jsxのテスト", () => {
     it("各li要素には、listDataで渡されたnameの値が表示されている", () => {
       listItems.forEach((node, index) => {
         expect(node.find(".columnName").text()).toBe(
-          shortParticipantData[index].name
+          shortParticipantData[index].user.name
         );
       });
     });
