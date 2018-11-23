@@ -6,7 +6,7 @@ exports[`SingleButton.jsxのテスト スナップショット 正しいレン�
 >
   <button
     className="default"
-    onClick={undefined}
+    onClick={[Function]}
   >
     Single Button
   </button>

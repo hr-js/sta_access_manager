@@ -3,10 +3,18 @@ import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
 import SingleButton from "@components/SingleButton";
 
+const fn = () => {};
+
 describe("SingleButton.jsxのテスト", () => {
   describe("スナップショット", () => {
     it("正しいレンダリング", () => {
-      const tree = renderer.create(<SingleButton text="Single Button" />);
+      const tree = renderer.create(
+        <SingleButton
+          text="Single Button"
+          className="default"
+          onButtonClick={fn}
+        />
+      );
       expect(tree).toMatchSnapshot();
     });
   });
@@ -17,13 +25,8 @@ describe("SingleButton.jsxのテスト", () => {
       <SingleButton text="Single Button" onButtonClick={onClick} />
     ).find("button");
 
-    it("classNameを指定しない時、button要素はcssクラス: defaultをもつ", () => {
+    it("classNameを指定しない時、ボタン表示はdefaultスタイルである", () => {
       expect(button.hasClass("default")).toBeTruthy();
-    });
-
-    it("classNameにnextと指定した時、button要素はcssクラス: nextをもつ", () => {
-      const nextButton = shallow(<SingleButton className="next" />);
-      expect(nextButton.find("button").hasClass("next")).toBeTruthy();
     });
 
     it("textに渡した値が、文表示される", () => {
@@ -33,6 +36,13 @@ describe("SingleButton.jsxのテスト", () => {
     it("ボタンをクリックすると、onButtonClickに渡した関数が実行される", () => {
       button.simulate("click");
       expect(onClick).toBeCalled();
+    });
+
+    it("classNameにnextと指定した時、ボタン表示はnextスタイルである", () => {
+      const nextButton = shallow(
+        <SingleButton text="Next" className="next" onButtonClick={fn} />
+      );
+      expect(nextButton.find("button").hasClass("next")).toBeTruthy();
     });
   });
 });
