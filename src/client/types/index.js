@@ -89,8 +89,7 @@ export type CommonProps = {
 
 // MainFlame
 export type MainFlameProps = {
-  +children: React.Node,
-  +type?: string
+  +children: React.Node
 };
 
 // Menu
