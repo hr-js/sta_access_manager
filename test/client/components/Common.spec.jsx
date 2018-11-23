@@ -8,6 +8,14 @@ jest
   .spyOn(Date.prototype, "toLocaleString")
   .mockReturnValue("1970/01/01 00:00:00");
 
+const setTimeoutSpy = jest
+  .spyOn(window, "setTimeout")
+  .mockImplementation(() => 999);
+
+const clearTimeoutSpy = jest
+  .spyOn(window, "clearTimeout")
+  .mockImplementation(() => {});
+
 const fn = () => {};
 const factory = (values = {}) => {
   const { type, subText } = values;
@@ -19,6 +27,7 @@ const factory = (values = {}) => {
       buttonText="ボタン"
       buttonClass="default"
       onButtonClick={fn}
+      autoPageTransition={fn}
     />
   );
 };
@@ -33,7 +42,8 @@ describe("Common.jsxのテスト", () => {
           subText="サブテキスト"
           buttonText="ボタン"
           buttonClass="default"
-          onButtonClick={() => {}}
+          onButtonClick={fn}
+          autoPageTransition={fn}
         />
       );
       expect(tree).toMatchSnapshot();
@@ -41,7 +51,24 @@ describe("Common.jsxのテスト", () => {
   });
 
   describe("コンポーネントのテスト", () => {
-    const defaultCommon = factory();
+    let defaultCommon;
+
+    beforeAll(() => {
+      defaultCommon = factory();
+    });
+
+    it("componentDidMountは、setTimeoutを実行する", () => {
+      const [first, second] = setTimeoutSpy.mock.calls[0];
+      expect(first).toBeInstanceOf(Function);
+      expect(second).toBe(5000);
+      expect(defaultCommon.instance().timeoutId).toBe(999);
+    });
+
+    it("componentWillUnmountは、clearTimeoutを実行する", () => {
+      defaultCommon.instance().componentWillUnmount();
+      const [first] = clearTimeoutSpy.mock.calls[0];
+      expect(first).toBe(defaultCommon.instance().timeoutId);
+    });
 
     it("typeがdateの時、時刻が表示されている", () => {
       const common = factory({ type: "date" });
