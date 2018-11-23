@@ -127,7 +127,7 @@ export type ParticipantStatusProps = {
 // Purpose
 export type PurposeProps = {
   +checkId: () => {},
-  +unmount: () => {},
+  +removeId: () => {},
   +onPurposeButtonClick: (e: SyntheticEvent<HTMLButtonElement>) => Promise<void>
 };
 

@@ -9,12 +9,7 @@ describe("Purpose.jsx", () => {
       const fn = () => {};
       const tree = renderer
         .create(
-          <Purpose
-            onMeetUpButtonClick={fn}
-            onWorkButtonClick={fn}
-            onStudyButtonClick={fn}
-            onCircleButtonClick={fn}
-          />
+          <Purpose checkId={fn} removeId={fn} onPurposeButtonClick={fn} />
         )
         .toJSON();
       expect(tree).toMatchSnapshot();
@@ -22,37 +17,52 @@ describe("Purpose.jsx", () => {
   });
 
   describe("コンポーネントのテスト", () => {
-    const mockMeetUpButtonClick = jest.fn();
-    const mockWorkButtonClick = jest.fn();
-    const mockStudyButtonClick = jest.fn();
-    const mockCircleButtonClick = jest.fn();
-    const purpose = shallow(
-      <Purpose
-        onMeetUpButtonClick={mockMeetUpButtonClick}
-        onWorkButtonClick={mockWorkButtonClick}
-        onStudyButtonClick={mockStudyButtonClick}
-        onCircleButtonClick={mockCircleButtonClick}
-      />
-    );
+    const checkIdMock = jest.fn();
+    const removeIdMock = jest.fn();
+    const onPurposeButtonClickMock = jest.fn();
+    let purpose;
 
-    it("勉強会をクリックしたら、onClickに渡した関数が実行される", () => {
-      purpose.find(".meetUp").simulate("click");
-      expect(mockMeetUpButtonClick).toBeCalled();
+    beforeAll(() => {
+      purpose = shallow(
+        <Purpose
+          checkId={checkIdMock}
+          removeId={removeIdMock}
+          onPurposeButtonClick={onPurposeButtonClickMock}
+        />
+      );
     });
 
-    it("仕事をクリックしたら、onClickに渡した関数が実行される", () => {
-      purpose.find(".work").simulate("click");
-      expect(mockWorkButtonClick).toBeCalled();
+    beforeEach(() => {
+      onPurposeButtonClickMock.mockClear();
     });
 
-    it("自習をクリックしたら、onClickに渡した関数が実行される", () => {
-      purpose.find(".study").simulate("click");
-      expect(mockStudyButtonClick).toBeCalled();
+    it("componentDidMountは、checkIdを実行する", () => {
+      expect(checkIdMock).toBeCalled();
     });
 
-    it("サークルをクリックしたら、onClickに渡した関数が実行される", () => {
-      purpose.find(".circle").simulate("click");
-      expect(mockCircleButtonClick).toBeCalled();
+    it("componentWillUnmountは、removeIdを実行する", () => {
+      purpose.instance().componentWillUnmount();
+      expect(removeIdMock).toBeCalled();
+    });
+
+    it("勉強会をクリックしたら、onPurposeButtonClickが実行される", () => {
+      purpose.find("#meetup").simulate("click");
+      expect(onPurposeButtonClickMock).toBeCalled();
+    });
+
+    it("仕事をクリックしたら、onPurposeButtonClickMockが実行される", () => {
+      purpose.find("#work").simulate("click");
+      expect(onPurposeButtonClickMock).toBeCalled();
+    });
+
+    it("自習をクリックしたら、onPurposeButtonClickMockが実行される", () => {
+      purpose.find("#study").simulate("click");
+      expect(onPurposeButtonClickMock).toBeCalled();
+    });
+
+    it("サークルをクリックしたら、onPurposeButtonClickMockが実行される", () => {
+      purpose.find("#circle").simulate("click");
+      expect(onPurposeButtonClickMock).toBeCalled();
     });
   });
 });
