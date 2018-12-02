@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Register.Input.jsxのテスト スナップショット 正しいレンダリング 1`] = `
+exports[`Register/Input.jsxのテスト スナップショット 正しいレンダリング 1`] = `
 <div
   className="inputArea"
 >
@@ -13,13 +13,13 @@ exports[`Register.Input.jsxのテスト スナップショット 正しいレン
     >
       エラー
     </span>
+    <input
+      className="input bad"
+      id="id"
+      onChange={[Function]}
+      type="text"
+      value="value"
+    />
   </label>
-  <input
-    className="input bad"
-    id="id"
-    onChange={[Function]}
-    type="text"
-    value="value"
-  />
 </div>
 `;
