@@ -32,7 +32,7 @@ class InputForm extends React.Component<RegisterInputFormProps> {
       onSubmitForm
     } = this.props;
     const { main, inputName, inputEmail, domain, contentWithButton } = styles;
-    const domainName = process.env.MAIL_DOMAIN || "hoge.com";
+    const domainName = process.env.MAIL_DOMAIN;
 
     return (
       <div className={main}>

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-boolean-value */
 import React from "react";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
@@ -12,14 +13,14 @@ describe("Participant.Status.jsxのテスト", () => {
   });
 
   describe("コンポーネントのテスト", () => {
-    it("isEntryを指定した時、共通cssクラス以外にentryを持ち、入と表示される", () => {
-      const status = shallow(<Status isEntry />);
+    it("isEntryがtrueの時、「入」と表示される", () => {
+      const status = shallow(<Status isEntry={true} />);
       expect(status.hasClass("entry")).toBeTruthy();
       expect(status.text("入")).toBeTruthy();
     });
 
-    it("isEntryを指定しない時、共通cssクラス以外にexitを持ち、退と表示される", () => {
-      const status = shallow(<Status />);
+    it("isEntryがfalseの時、「退」と表示される", () => {
+      const status = shallow(<Status isEntry={false} />);
       expect(status.hasClass("exit")).toBeTruthy();
       expect(status.text("退")).toBeTruthy();
     });

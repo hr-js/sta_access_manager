@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RegisterFailed.jsxのテスト スナップショット 正しいレンダリング 1`] = `
+exports[`Register/Scan.jsxのテスト スナップショット 正しいレンダリング 1`] = `
 <div
   className="main"
 >
   <div
     className="contentWithButton textOnly"
   >
-    登録に失敗しました
+    カードをスキャンして下さい
   </div>
   <div
     className="singleButton"
@@ -16,7 +16,7 @@ exports[`RegisterFailed.jsxのテスト スナップショット 正しいレン
       className="default"
       onClick={[Function]}
     >
-      入力画面に戻る
+      戻る
     </button>
   </div>
 </div>

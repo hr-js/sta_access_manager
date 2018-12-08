@@ -89,8 +89,7 @@ export type CommonProps = {
 
 // MainFlame
 export type MainFlameProps = {
-  +children: React.Node,
-  +type?: string
+  +children: React.Node
 };
 
 // Menu
@@ -128,7 +127,7 @@ export type ParticipantStatusProps = {
 // Purpose
 export type PurposeProps = {
   +checkId: () => {},
-  +unmount: () => {},
+  +removeId: () => {},
   +onPurposeButtonClick: (e: SyntheticEvent<HTMLButtonElement>) => Promise<void>
 };
 

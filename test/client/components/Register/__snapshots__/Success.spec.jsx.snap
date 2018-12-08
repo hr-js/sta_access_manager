@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RegisterSuccess.jsxのテスト スナップショット 正しいレンダリング 1`] = `
+exports[`Register/Success.jsxのテスト スナップショット 正しいレンダリング 1`] = `
 <div
   className="main"
 >

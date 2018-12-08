@@ -15,7 +15,7 @@ import styles from "./style.css";
 
 const menuList: Array<MenuButton> = [
   { text: "入退室処理", name: TOP, path: TOP_PATH },
-  { text: "ユーザー登録", name: REGISTER, path: REGISTER_PATH },
+  { text: "ユーザ登録", name: REGISTER, path: REGISTER_PATH },
   { text: "利用者一覧", name: PARTICIPANT, path: PARTICIPANT_PATH }
 ];
 

@@ -10,7 +10,7 @@ class Purpose extends React.Component<PurposeProps> {
   }
 
   componentWillUnmount() {
-    this.props.unmount();
+    this.props.removeId();
   }
 
   render() {
